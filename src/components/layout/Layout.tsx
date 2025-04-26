@@ -1,0 +1,352 @@
+import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
+import { ReactNode, useState } from "react";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+interface LayoutProps {
+  children: ReactNode;
+  activeMenu?: "about" | "books" | "series" | "contents" | "goods";
+  activeSubmenu?: string;
+  fullWidth?: boolean;
+}
+
+export default function Layout({ children, activeMenu, activeSubmenu, fullWidth = false }: LayoutProps) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-white text-black`} style={{color: 'black'}}>
+      {/* 단일 헤더 */}
+      <header className="border-b border-gray-200 sticky top-0 bg-white z-30">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <Link href="/" className="text-2xl font-bold text-black" style={{color: 'black'}}>출판사 무제</Link>
+          </div>
+          <div className="hidden md:flex items-center space-x-6">
+            <Link href="/alarm" className="text-black hover:text-gray-600" style={{color: 'black'}}>알림</Link>
+            <Link href="/profile" className="text-black hover:text-gray-600" style={{color: 'black'}}>프로필</Link>
+            <Link href="/login" className="text-black hover:text-gray-600" style={{color: 'black'}}>로그인</Link>
+          </div>
+          <div className="md:hidden">
+            <button 
+              className="p-2" 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="메뉴 열기"
+              style={{color: 'black'}}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{color: 'black'}}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* 모바일 메뉴 */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-white z-40 pt-20 px-4 overflow-y-auto">
+          <div className="flex flex-col space-y-4">
+            <Link 
+              href="/about"
+              className={`py-2 border-b border-gray-100 text-black ${activeMenu === "about" ? "font-bold" : ""}`}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{color: 'black'}}
+            >
+              출판사 무제
+            </Link>
+            <div>
+              <Link 
+                href="/books"
+                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "books" ? "font-bold" : ""}`}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{color: 'black'}}
+              >
+                책 소개
+              </Link>
+              {activeMenu === "books" && (
+                <div className="pl-4 border-l border-gray-200 my-2">
+                  <Link 
+                    href="/books/summer"
+                    className={`py-1 block text-black ${activeSubmenu === "summer" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    첫 여름, 완주
+                  </Link>
+                  <Link 
+                    href="/books/diary"
+                    className={`py-1 block text-black ${activeSubmenu === "diary" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    자매일기
+                  </Link>
+                  <Link 
+                    href="/books/save"
+                    className={`py-1 block text-black ${activeSubmenu === "save" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    살리는 일
+                  </Link>
+                  <Link 
+                    href="/books/upcoming"
+                    className={`py-1 block text-black ${activeSubmenu === "upcoming" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    coming soon
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link 
+              href="/series"
+              className={`py-2 border-b border-gray-100 text-black ${activeMenu === "series" ? "font-bold" : ""}`}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{color: 'black'}}
+            >
+              연재
+            </Link>
+            <div>
+              <Link 
+                href="/contents"
+                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "contents" ? "font-bold" : ""}`}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{color: 'black'}}
+              >
+                콘텐츠
+              </Link>
+              {activeMenu === "contents" && (
+                <div className="pl-4 border-l border-gray-200 my-2">
+                  <Link 
+                    href="/contents/news"
+                    className={`py-1 block text-black ${activeSubmenu === "news" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    소식
+                  </Link>
+                  <Link 
+                    href="/contents/youtube"
+                    className={`py-1 block text-black ${activeSubmenu === "youtube" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    유튜브
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div>
+              <Link 
+                href="/goods"
+                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "goods" ? "font-bold" : ""}`}
+                onClick={() => setMobileMenuOpen(false)}
+                style={{color: 'black'}}
+              >
+                굿즈
+              </Link>
+              {activeMenu === "goods" && (
+                <div className="pl-4 border-l border-gray-200 my-2">
+                  <Link 
+                    href="/goods/pen"
+                    className={`py-1 block text-black ${activeSubmenu === "pen" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    만년필
+                  </Link>
+                  <Link 
+                    href="/goods/note"
+                    className={`py-1 block text-black ${activeSubmenu === "note" ? "font-bold" : ""}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{color: 'black'}}
+                  >
+                    노트
+                  </Link>
+                </div>
+              )}
+            </div>
+            <div className="pt-4 mt-4 border-t border-gray-200">
+              <Link href="/login" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>로그인</Link>
+              <Link href="/profile" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>프로필</Link>
+              <Link href="/alarm" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>알림</Link>
+            </div>
+            <button 
+              className="mt-6 p-2 border border-gray-200 rounded w-full text-black" 
+              onClick={() => setMobileMenuOpen(false)}
+              style={{color: 'black'}}
+            >
+              닫기
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* 데스크탑 네비게이션 - 단일 nav */}
+      <nav className="hidden md:block border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <ul className="flex space-x-8" style={{color: 'black'}}>
+            <li>
+              <Link 
+                href="/about" 
+                className={activeMenu === "about" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                style={{color: 'black'}}
+              >
+                출판사 무제
+              </Link>
+            </li>
+            <li className="relative group">
+              <Link 
+                href="/books" 
+                className={activeMenu === "books" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                style={{color: 'black'}}
+              >
+                책 소개
+              </Link>
+              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+                <ul className="space-y-2">
+                  <li>
+                    <Link 
+                      href="/books/summer" 
+                      className={activeSubmenu === "summer" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      첫 여름, 완주
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/books/diary" 
+                      className={activeSubmenu === "diary" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      자매일기
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/books/save" 
+                      className={activeSubmenu === "save" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      살리는 일
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/books/upcoming" 
+                      className={activeSubmenu === "upcoming" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      coming soon
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <Link 
+                href="/series" 
+                className={activeMenu === "series" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                style={{color: 'black'}}
+              >
+                연재
+              </Link>
+            </li>
+            <li className="relative group">
+              <Link 
+                href="/contents" 
+                className={activeMenu === "contents" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                style={{color: 'black'}}
+              >
+                콘텐츠
+              </Link>
+              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+                <ul className="space-y-2">
+                  <li>
+                    <Link 
+                      href="/contents/news" 
+                      className={activeSubmenu === "news" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      소식
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/contents/youtube" 
+                      className={activeSubmenu === "youtube" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      유튜브
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li className="relative group">
+              <Link 
+                href="/goods" 
+                className={activeMenu === "goods" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                style={{color: 'black'}}
+              >
+                굿즈
+              </Link>
+              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+                <ul className="space-y-2">
+                  <li>
+                    <Link 
+                      href="/goods/pen" 
+                      className={activeSubmenu === "pen" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      만년필
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="/goods/note" 
+                      className={activeSubmenu === "note" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                      style={{color: 'black'}}
+                    >
+                      노트
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main className={fullWidth ? "w-full p-0 m-0" : ""}>
+        {children}
+      </main>
+
+      <footer className="border-t border-gray-200 mt-12">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p className="text-xl font-bold text-black" style={{color: 'black'}}>출판사 무제</p>
+              <p className="text-sm" style={{color: 'black'}}>booksmuze</p>
+            </div>
+            <div>
+              <Link href="/terms" className="text-sm text-black hover:underline" style={{color: 'black'}}>이용약관</Link>
+              <p className="text-sm mt-2" style={{color: 'black'}}>© 2025 출판사 무제., All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+} 

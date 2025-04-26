@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f0f0f0" />
+  
+  <g transform="translate(250, 300)">
+    <rect x="-200" y="-150" width="400" height="300" fill="#222" rx="10" />
+    <rect x="-190" y="-140" width="380" height="200" fill="#fff" rx="5" />
+    <text x="0" y="-70" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#ff758f">BOOK</text>
+    <text x="0" y="10" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="45" fill="#333" letter-spacing="10">COVER</text>
+    <rect x="-190" y="70" width="380" height="70" fill="#fff" rx="5" />
+    <text x="0" y="105" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#555">데스크탑 와이드스크린 버전</text>
+  </g>
+  
+  <g transform="translate(600, 300)">
+    <rect x="-100" y="-200" width="200" height="400" fill="#333" rx="10" />
+    <rect x="-90" y="-190" width="180" height="380" fill="#fff" rx="5" />
+    <text x="0" y="-120" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">출판사</text>
+    <text x="0" y="-90" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="35" font-weight="bold" fill="#000">무제</text>
+    <text x="0" y="-50" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">도서 출판 전문 회사</text>
+    
+    <line x1="-60" y1="0" x2="60" y2="0" stroke="#ddd" stroke-width="1" />
+    
+    <text x="0" y="50" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">높은 퀄리티</text>
+    <text x="0" y="80" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">독창적 콘텐츠</text>
+    <text x="0" y="110" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333">다양한 장르</text>
+  </g>
+  
+  <text x="50%" y="10%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#000">출판사 무제</text>
+  <text x="50%" y="15%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#333">도서 출판 전문 회사 - 데스크탑</text>
+  
+  <text x="50%" y="95%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#555">© 2025 출판사 무제. All rights reserved.</text>
+</svg> 
