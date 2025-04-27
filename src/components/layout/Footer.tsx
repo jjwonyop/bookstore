@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between mb-8">
           <div className="mb-6 md:mb-0">
             <Link href="/" className="font-bold text-xl mb-4 block">
-              출판사 무제
+              출판사 아이와글
             </Link>
             <p className="text-sm text-gray-500 mb-2">booksmuze</p>
           </div>

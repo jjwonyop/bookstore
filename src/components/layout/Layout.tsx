@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import { ReactNode, useState } from "react";
 
 const geistSans = Geist({
@@ -27,15 +28,36 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
       {/* 단일 헤더 */}
       <header className="border-b border-gray-200 sticky top-0 bg-white z-30">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <Link href="/" className="text-2xl font-bold text-black" style={{color: 'black'}}>출판사 무제</Link>
+          <div className="flex items-center space-x-4 md:w-auto w-1/3">
+            {/* 모바일에서 숨김, PC에서는 좌측상단에 로고 표시 */}
+            <Link href="/" className="md:flex hidden items-center">
+              <Image
+                src="/images/홈피로고.png"
+                alt="출판사 로고"
+                width={280}
+                height={70}
+                className="h-14 w-auto"
+                priority
+              />
+            </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-6">
-            <Link href="/alarm" className="text-black hover:text-gray-600" style={{color: 'black'}}>알림</Link>
-            <Link href="/profile" className="text-black hover:text-gray-600" style={{color: 'black'}}>프로필</Link>
-            <Link href="/login" className="text-black hover:text-gray-600" style={{color: 'black'}}>로그인</Link>
+
+          {/* 모바일에서만 표시되는 중앙 로고 */}
+          <div className="md:hidden flex justify-center items-center w-1/3">
+            <Link href="/" className="flex items-center py-2">
+              <div className="flex items-center">
+                <Image
+                  src="/images/홈피로고.png"
+                  alt="출판사 로고"
+                  width={240}
+                  height={60}
+                  className="h-14 w-auto"
+                />
+              </div>
+            </Link>
           </div>
-          <div className="md:hidden">
+
+          <div className="md:hidden w-1/3 flex justify-end">
             <button 
               className="p-2" 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -60,7 +82,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
-              출판사 무제
+              아이와글
             </Link>
             <div>
               <Link 
@@ -176,11 +198,6 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 </div>
               )}
             </div>
-            <div className="pt-4 mt-4 border-t border-gray-200">
-              <Link href="/login" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>로그인</Link>
-              <Link href="/profile" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>프로필</Link>
-              <Link href="/alarm" className="block py-2 text-black" onClick={() => setMobileMenuOpen(false)} style={{color: 'black'}}>알림</Link>
-            </div>
             <button 
               className="mt-6 p-2 border border-gray-200 rounded w-full text-black" 
               onClick={() => setMobileMenuOpen(false)}
@@ -195,14 +212,19 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
       {/* 데스크탑 네비게이션 - 단일 nav */}
       <nav className="hidden md:block border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-center mb-4">
+            <Link href="/" className="flex items-center">
+              {/* 로고 제거됨 */}
+            </Link>
+          </div>
           <ul className="flex space-x-8" style={{color: 'black'}}>
             <li>
               <Link 
                 href="/about" 
-                className={activeMenu === "about" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                className={activeMenu === "about" ? "font-bold" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                출판사 무제
+                아이와글
               </Link>
             </li>
             <li className="relative group">
@@ -337,12 +359,19 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <p className="text-xl font-bold text-black" style={{color: 'black'}}>출판사 무제</p>
-              <p className="text-sm" style={{color: 'black'}}>booksmuze</p>
+              <div className="flex items-center">
+                <Image
+                  src="/images/홈피로고.png"
+                  alt="출판사 로고"
+                  width={180}
+                  height={45}
+                  className="h-10 w-auto"
+                />
+              </div>
             </div>
             <div>
               <Link href="/terms" className="text-sm text-black hover:underline" style={{color: 'black'}}>이용약관</Link>
-              <p className="text-sm mt-2" style={{color: 'black'}}>© 2025 출판사 무제., All rights reserved.</p>
+              <p className="text-sm mt-2" style={{color: 'black'}}>© 2025 출판사 아이와글., All rights reserved.</p>
             </div>
           </div>
         </div>

@@ -35,8 +35,8 @@ const Header = () => {
 
   const menuItems = [
     {
-      name: '출판사 무제',
-      href: '/about',
+      name: '아이와글',
+      href: '/',
       subMenus: [],
     },
     {
