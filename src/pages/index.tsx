@@ -46,7 +46,7 @@ export default function Home() {
               navigation={true}
               pagination={{ clickable: true }}
               autoplay={{
-                delay: 1000,
+                delay: 5000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
               }}
@@ -59,7 +59,7 @@ export default function Home() {
                     <div className="relative w-full h-screen max-h-[600px] overflow-hidden bg-white">
                       <Image
                         src="/images/main/mobile/모바일-대문.png"
-                        alt="출판사 무제 모바일 배너"
+                        alt="출판사 아이와글 모바일 배너"
                         fill
                         className="object-contain"
                         priority
@@ -70,7 +70,7 @@ export default function Home() {
                       <div className="relative w-[90%] aspect-[16/9] max-h-[80vh]">
                         <Image
                           src="/images/main/pc/PC-대문.png"
-                          alt="출판사 무제 데스크탑 배너"
+                          alt="출판사 아이와글 데스크탑 배너"
                           fill
                           className="object-contain"
                           priority
@@ -87,7 +87,7 @@ export default function Home() {
                     <div className="relative w-full h-screen max-h-[600px] overflow-hidden bg-white">
                       <Image
                         src="/images/main/mobile/대문2-모바일.png"
-                        alt="출판사 무제 모바일 배너 2"
+                        alt="출판사 아이와글 모바일 배너 2"
                         fill
                         className="object-contain"
                       />
@@ -97,7 +97,7 @@ export default function Home() {
                       <div className="relative w-[90%] aspect-[16/9] max-h-[80vh]">
                         <Image
                           src="/images/main/pc/대문2-PC.png"
-                          alt="출판사 무제 데스크탑 배너 2"
+                          alt="출판사 아이와글 데스크탑 배너 2"
                           fill
                           className="object-contain"
                         />
@@ -112,7 +112,7 @@ export default function Home() {
 
         <section className="py-10 md:py-16 container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-black" style={{color: 'black'}}>무제의 소식을</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-black" style={{color: 'black'}}>아이와글의 소식을</h2>
             <h3 className="text-3xl md:text-4xl font-bold mb-10 text-black" style={{color: 'black'}}>확인하세요</h3>
             <div className="flex justify-center space-x-8 md:space-x-12">
               <Link href="/series" className="font-bold hover:text-gray-600 text-xl text-black" style={{color: 'black'}}>연재 →</Link>
@@ -152,51 +152,15 @@ export default function Home() {
                 <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
                   <div className="relative aspect-[3/4] w-full mb-4">
                     <Image
-                      src="/images/books/book1.jpg"
-                      alt="첫 여름, 완주"
+                      src="/images/books/책이미지.png"
+                      alt="리오와 스피치 마법학교"
                       fill
                       className="object-cover rounded-sm"
                       sizes="(max-width: 768px) 90vw, 30vw"
                     />
                   </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>첫 여름, 완주</p>
+                  <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>리오와 스피치 마법학교</p>
                   <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-200 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
-                    자세히 보기
-                  </Link>
-                </div>
-              </SwiperSlide>
-              
-              <SwiperSlide>
-                <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
-                  <div className="relative aspect-[3/4] w-full mb-4">
-                    <Image
-                      src="/images/books/book2.jpg"
-                      alt="자매일기"
-                      fill
-                      className="object-cover rounded-sm"
-                      sizes="(max-width: 768px) 90vw, 30vw"
-                    />
-                  </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>자매일기</p>
-                  <Link href="/books/diary" className="text-center font-bold mt-auto py-3 border-t border-gray-200 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
-                    자세히 보기
-                  </Link>
-                </div>
-              </SwiperSlide>
-              
-              <SwiperSlide>
-                <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
-                  <div className="relative aspect-[3/4] w-full mb-4">
-                    <Image
-                      src="/images/books/book3.jpg"
-                      alt="살리는 일"
-                      fill
-                      className="object-cover rounded-sm"
-                      sizes="(max-width: 768px) 90vw, 30vw"
-                    />
-                  </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>살리는 일</p>
-                  <Link href="/books/save" className="text-center font-bold mt-auto py-3 border-t border-gray-200 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
                     자세히 보기
                   </Link>
                 </div>

@@ -1,95 +1,173 @@
+import Head from "next/head";
 import Image from "next/image";
-import Layout from "../../components/layout/Layout";
+import Layout from "@/components/layout/Layout";
+import Link from "next/link";
+import { useState } from "react";
 
-export default function BookSummer() {
+// 탭 컴포넌트
+interface TabProps {
+  active: string;
+  onChange: (tab: string) => void;
+}
+
+function BookTabs({ active, onChange }: TabProps) {
+  const tabs = [
+    { id: "intro", label: "책 소개" },
+  ];
+
+  return (
+    <div className="flex space-x-1 border-b border-gray-200 mb-6">
+      {tabs.map((tab) => (
+        <button
+          key={tab.id}
+          className={`py-2 px-4 text-sm md:text-base ${
+            active === tab.id
+              ? "border-b-2 border-black font-medium"
+              : "text-gray-500 hover:text-black"
+          }`}
+          onClick={() => onChange(tab.id)}
+        >
+          {tab.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// 구매처 링크 컴포넌트
+function BookstoreLinks() {
+  const stores = [
+    { name: "YES24", url: "https://www.yes24.com" },
+    { name: "알라딘", url: "https://www.aladin.co.kr" },
+    { name: "교보문고", url: "https://www.kyobobook.co.kr" },
+    { name: "영풍문고", url: "https://www.ypbooks.co.kr" },
+  ];
+
+  return (
+    <div className="flex flex-wrap gap-2 mt-4">
+      {stores.map((store) => (
+        <Link
+          key={store.name}
+          href={store.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 bg-gray-100 text-black hover:bg-gray-200 rounded-md text-sm transition-colors"
+        >
+          {store.name}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+// 책 정보 컴포넌트
+function BookInfo() {
+  return (
+    <div className="text-sm md:text-base text-gray-700 mt-2 space-y-1">
+      <p>저자 김서혜 | 출판사 아이와글</p>
+      <p>발행일 2025.03.12 | ISBN 9791199145504</p>
+      <p>32쪽</p>
+    </div>
+  );
+}
+
+// 책 소개 내용 컴포넌트
+function BookIntroduction() {
+  const bookImages = [
+    {
+      src: "/images/books/작품소개1.png",
+      alt: "리오와 스피치 마법학교 - 내용 이미지 1"
+    },
+    {
+      src: "/images/books/작품소개2.png",
+      alt: "리오와 스피치 마법학교 - 내용 이미지 2"
+    },
+    {
+      src: "/images/books/작품소개3.png",
+      alt: "리오와 스피치 마법학교 - 내용 이미지 3"
+    },
+    {
+      src: "/images/books/작품소개4.png",
+      alt: "리오와 스피치 마법학교 - 내용 이미지 4"
+    },
+    {
+      src: "/images/books/작품소개5.png",
+      alt: "리오와 스피치 마법학교 - 내용 이미지 5"
+    }
+  ];
+
+  return (
+    <div className="w-full md:prose-base text-black mt-4 md:mt-8 md:max-w-none">
+      {/* 책 내용 이미지들 - 세로로 연속해서 배치, 여백 없음 */}
+      <div className="flex flex-col -space-y-1 md:max-w-3xl md:mx-auto">
+        {bookImages.map((image, index) => (
+          <div key={index} className="w-full">
+            <div className="relative w-full">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={1200}
+                height={900}
+                className="w-full h-auto object-cover"
+                quality={90}
+                priority={index < 2}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Summer() {
+  const [activeTab, setActiveTab] = useState<string>("intro");
+
   return (
     <Layout activeMenu="books" activeSubmenu="summer">
-      <div className="flex flex-col md:flex-row gap-8 mb-12">
-        <div className="w-full md:w-1/3">
-          <div className="relative aspect-[3/4] w-full shadow-md rounded-sm overflow-hidden">
-            <Image
-              src="/images/books/book1.jpg"
-              alt="첫 여름, 완주"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-              priority
-            />
-          </div>
-        </div>
+      <Head>
+        <title>리오와 스피치 마법학교 - 출판사 아이와글</title>
+        <meta name="description" content="리오와 스피치 마법학교 - 출판사 아이와글" />
+      </Head>
+
+      <div className="container mx-auto px-4 md:py-16 py-4">
         
-        <div className="w-full md:w-2/3">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">첫 여름, 완주</h1>
-          <p className="text-gray-600 mb-6">저자: 홍길동</p>
-          <p className="mb-8 text-gray-700 leading-relaxed">
-            이 소설은 한 청년의 여름 방학 동안의 여정을 그린 이야기입니다. 완주에서 시작된 여행은 자신을 발견하고 성장하는 이야기로 이어집니다. 청춘의 아름다움과 고뇌, 그리고 성장의 순간들을 담아냈습니다.
-          </p>
-          
-          <div className="border-t border-b border-gray-200 py-6 mb-8">
-            <h2 className="font-bold mb-4">책 정보</h2>
-            <ul className="space-y-2 text-gray-700">
-              <li>출간일: 2023년 5월 15일</li>
-              <li>페이지: 248쪽</li>
-              <li>ISBN: 9788900000000</li>
-              <li>가격: 15,000원</li>
-            </ul>
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* 책 표지 이미지 */}
+          <div className="w-full md:w-1/3 lg:w-1/4 flex justify-center">
+            <div className="relative w-48 md:w-56 h-64 md:h-80">
+              <Image
+                src="/images/books/책이미지.png"
+                alt="리오와 스피치 마법학교"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
-          
-          <button className="bg-black text-white px-6 py-3 font-bold mb-4 w-full md:w-auto hover:bg-gray-800 transition-colors rounded-sm">
-            구매하기
-          </button>
-        </div>
-      </div>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">책 소개</h2>
-        <p className="mb-4 text-gray-700 leading-relaxed">
-          &lsquo;첫 여름, 완주&rsquo;는 대학생 주인공이 여름 방학을 맞아 전라북도 완주에서 보내는
-          시간을 그린 소설입니다. 도시의 바쁜 일상에서 벗어나 자연과 함께하며 자신을 돌아보는
-          시간을 갖게 됩니다.
-        </p>
-        <p className="text-gray-700 leading-relaxed">
-          어린 시절의 추억이 담긴 시골 마을에서 다양한 인물들과 교류하며, 잊고 있었던
-          소중한 가치들을 다시 발견하게 됩니다. 첫사랑, 가족애, 그리고 자아 성찰에 관한
-          아름다운 이야기입니다.
-        </p>
-      </div>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">목차</h2>
-        <ul className="list-decimal pl-5 space-y-2 text-gray-700">
-          <li>출발: 서울에서 완주로</li>
-          <li>할머니의 집</li>
-          <li>옛 친구들과의 재회</li>
-          <li>시냇가의 추억</li>
-          <li>여름 축제</li>
-          <li>첫사랑의 흔적</li>
-          <li>가족의 의미</li>
-          <li>돌아가는 길</li>
-        </ul>
-      </div>
-      
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">저자 소개</h2>
-        <p className="mb-4 text-gray-700 leading-relaxed">
-          홍길동 작가는 2018년 등단하여 &lsquo;계절의 기억&rsquo;, &lsquo;그림자의 춤&rsquo; 등의 소설을 발표했습니다.
-          섬세한 감성과 풍부한 상상력으로 독자들의 마음을 사로잡는 작가로 평가받고 있습니다.
-        </p>
-        <p className="text-gray-700 leading-relaxed">
-          전북 완주 출신으로, 자신의 고향을 배경으로 한 이야기를 통해 지역의 아름다움과
-          가치를 전달하고자 노력하고 있습니다.
-        </p>
-      </div>
-      
-      <div>
-        <h2 className="text-2xl font-bold mb-6 border-b border-gray-200 pb-4">추천사</h2>
-        <div className="italic border-l-4 border-gray-300 pl-4 py-2 mb-4 text-gray-700">
-          &ldquo;잔잔하면서도 깊은 여운을 남기는 이야기. 완주의 풍경과 인물들이 생생하게 그려집니다.&rdquo;
-          <p className="mt-2 font-bold">- 김문학 (소설가)</p>
-        </div>
-        <div className="italic border-l-4 border-gray-300 pl-4 py-2 text-gray-700">
-          &ldquo;청춘의 성장통과 자아 발견의 과정을 섬세하게 담아낸 아름다운 소설입니다.&rdquo;
-          <p className="mt-2 font-bold">- 이평론 (문학평론가)</p>
+
+          {/* 책 정보 영역 */}
+          <div className="w-full md:w-2/3 lg:w-3/4">
+            <h2 className="text-2xl md:text-3xl font-bold">리오와 스피치 마법학교 - 출판사 아이와글</h2>
+            <BookInfo />
+            
+            <div className="mt-6">
+              <h3 className="text-lg font-medium">도서 판매처 바로가기</h3>
+              <BookstoreLinks />
+            </div>
+            
+            {/* 탭 네비게이션 */}
+            <div className="mt-8 md:mt-12">
+              <BookTabs active={activeTab} onChange={setActiveTab} />
+              
+              {/* 탭 내용 */}
+              {activeTab === "intro" && (
+                <div className="md:px-0 -mx-4">
+                  <BookIntroduction />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

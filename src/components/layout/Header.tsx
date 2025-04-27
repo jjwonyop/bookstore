@@ -35,27 +35,24 @@ const Header = () => {
 
   const menuItems = [
     {
-      name: '아이와글',
+      name: '아이와글 소개',
       href: '/',
       subMenus: [],
     },
     {
-      name: '책 소개',
+      name: '아이와글 책장',
       href: '/books',
       subMenus: [
-        { name: '첫 여름, 완주', href: '/books/first-summer' },
-        { name: '자매일기', href: '/books/sister-diary' },
-        { name: '살리는 일', href: '/books/saving-work' },
-        { name: 'coming soon', href: '/books/coming-soon' },
+        { name: '리오와 스피치 마법학교', href: '/books/first-summer' },
       ],
     },
     {
-      name: '연재',
+      name: '아이와글 아트',
       href: '/series',
       subMenus: [],
     },
     {
-      name: '콘텐츠',
+      name: '아이와글 자료실',
       href: '/contents',
       subMenus: [
         { name: '소식', href: '/contents/news' },
@@ -63,7 +60,7 @@ const Header = () => {
       ],
     },
     {
-      name: '굿즈',
+      name: '아이와글 소식',
       href: '/goods',
       subMenus: [
         { name: '만년필', href: '/goods/fountain-pen' },
@@ -76,7 +73,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold">
-          <span className="sr-only">출판사 무제</span>
+          <span className="sr-only">출판사 아이와 글</span>
           {/* 로고 이미지는 나중에 추가 */}
           <div className="h-8 w-32 bg-gray-200 flex items-center justify-center">로고</div>
         </Link>

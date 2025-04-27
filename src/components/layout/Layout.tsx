@@ -82,7 +82,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
-              아이와글
+              아이와글 소개
             </Link>
             <div>
               <Link 
@@ -91,7 +91,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
-                책 소개
+                아이와글 책장
               </Link>
               {activeMenu === "books" && (
                 <div className="pl-4 border-l border-gray-200 my-2">
@@ -101,31 +101,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                     onClick={() => setMobileMenuOpen(false)}
                     style={{color: 'black'}}
                   >
-                    첫 여름, 완주
-                  </Link>
-                  <Link 
-                    href="/books/diary"
-                    className={`py-1 block text-black ${activeSubmenu === "diary" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{color: 'black'}}
-                  >
-                    자매일기
-                  </Link>
-                  <Link 
-                    href="/books/save"
-                    className={`py-1 block text-black ${activeSubmenu === "save" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{color: 'black'}}
-                  >
-                    살리는 일
-                  </Link>
-                  <Link 
-                    href="/books/upcoming"
-                    className={`py-1 block text-black ${activeSubmenu === "upcoming" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{color: 'black'}}
-                  >
-                    coming soon
+                    리오와 스피치 마법학교
                   </Link>
                 </div>
               )}
@@ -136,7 +112,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
-              연재
+              아이와글 아트
             </Link>
             <div>
               <Link 
@@ -145,7 +121,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
-                콘텐츠
+                아이와글 자료실
               </Link>
               {activeMenu === "contents" && (
                 <div className="pl-4 border-l border-gray-200 my-2">
@@ -175,7 +151,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
-                굿즈
+                아이와글 소식
               </Link>
               {activeMenu === "goods" && (
                 <div className="pl-4 border-l border-gray-200 my-2">
@@ -224,7 +200,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "about" ? "font-bold" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                아이와글
+                아이와글 소개
               </Link>
             </li>
             <li className="relative group">
@@ -233,7 +209,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "books" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                책 소개
+                아이와글 책장
               </Link>
               <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
                 <ul className="space-y-2">
@@ -243,34 +219,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                       className={activeSubmenu === "summer" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                       style={{color: 'black'}}
                     >
-                      첫 여름, 완주
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      href="/books/diary" 
-                      className={activeSubmenu === "diary" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{color: 'black'}}
-                    >
-                      자매일기
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      href="/books/save" 
-                      className={activeSubmenu === "save" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{color: 'black'}}
-                    >
-                      살리는 일
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      href="/books/upcoming" 
-                      className={activeSubmenu === "upcoming" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{color: 'black'}}
-                    >
-                      coming soon
+                      리오와 스피치 마법학교
                     </Link>
                   </li>
                 </ul>
@@ -282,7 +231,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "series" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                연재
+                아이와글 아트
               </Link>
             </li>
             <li className="relative group">
@@ -291,7 +240,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "contents" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                콘텐츠
+                아이와글 자료실
               </Link>
               <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
                 <ul className="space-y-2">
@@ -301,7 +250,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                       className={activeSubmenu === "news" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                       style={{color: 'black'}}
                     >
-                      소식
+                      네이버
                     </Link>
                   </li>
                   <li>
@@ -322,7 +271,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "goods" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                굿즈
+                아이와글 소식
               </Link>
               <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
                 <ul className="space-y-2">

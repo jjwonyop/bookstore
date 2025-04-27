@@ -9,17 +9,14 @@ const Footer = () => {
             <Link href="/" className="font-bold text-xl mb-4 block">
               출판사 아이와글
             </Link>
-            <p className="text-sm text-gray-500 mb-2">booksmuze</p>
+            <p className="text-sm text-gray-500 mb-2">iwagle</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div>
               <h3 className="font-medium mb-3">책 소개</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link href="/books/first-summer">첫 여름, 완주</Link></li>
-                <li><Link href="/books/sister-diary">자매일기</Link></li>
-                <li><Link href="/books/saving-work">살리는 일</Link></li>
-                <li><Link href="/books/coming-soon">coming soon</Link></li>
+                <li><Link href="/books/first-summer">리오와 스피치 마법학교</Link></li>
               </ul>
             </div>
             
@@ -56,7 +53,7 @@ const Footer = () => {
           </div>
           
           <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} 출판사 무제., All rights reserved.
+            © {new Date().getFullYear()} 출판사 아이와글., All rights reserved.
           </div>
         </div>
       </div>

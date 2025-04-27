@@ -35,7 +35,7 @@ export default function About() {
             <div className="w-full h-auto m-0 p-0">
               <Image
                 src="/images/about/mobile/모바일용-출판사소개.png"
-                alt="출판사 무제 소개"
+                alt="출판사 아이와글 소개"
                 width={500}
                 height={800}
                 style={{ 
@@ -51,7 +51,7 @@ export default function About() {
             <div className="w-full h-auto m-0 p-0">
               <Image
                 src="/images/about/mobile/모바일용-출판사소개2.png"
-                alt="출판사 무제 소개 하단"
+                alt="출판사 아이와글 소개 하단"
                 width={500}
                 height={600}
                 style={{ 
