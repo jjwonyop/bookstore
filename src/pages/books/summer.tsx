@@ -16,7 +16,7 @@ function BookTabs({ active, onChange }: TabProps) {
   ];
 
   return (
-    <div className="flex space-x-1 border-b border-gray-200 mb-6">
+    <div className="flex space-x-1 border-b border-gray-300 mb-0">
       {tabs.map((tab) => (
         <button
           key={tab.id}
@@ -97,18 +97,17 @@ function BookIntroduction() {
   ];
 
   return (
-    <div className="w-full md:prose-base text-black mt-4 md:mt-8 md:max-w-none">
-      {/* 책 내용 이미지들 - 세로로 연속해서 배치, 여백 없음 */}
-      <div className="flex flex-col -space-y-1 md:max-w-3xl md:mx-auto">
+    <div className="w-full text-black mt-0 md:mt-0 md:max-w-none p-0">
+      <div className="flex flex-col -space-y-1 md:max-w-3xl md:mx-auto mt-0 pt-0">
         {bookImages.map((image, index) => (
-          <div key={index} className="w-full">
-            <div className="relative w-full">
+          <div key={index} className="w-full m-0 p-0">
+            <div className="relative w-full m-0 p-0">
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={1200}
                 height={900}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover m-0 p-0"
                 quality={90}
                 priority={index < 2}
               />

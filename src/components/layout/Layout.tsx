@@ -26,32 +26,33 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
   return (
     <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-white text-black`} style={{color: 'black'}}>
       {/* 단일 헤더 */}
-      <header className="border-b border-gray-200 sticky top-0 bg-white z-30">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <header className="border-b border-gray-300 sticky top-0 bg-white z-30">
+        <div className="container mx-auto px-4 py-0 flex justify-between items-center">
           <div className="flex items-center space-x-4 md:w-auto w-1/3">
-            {/* 모바일에서 숨김, PC에서는 좌측상단에 로고 표시 */}
+            {/* PC: 좌측 상단에 로고 크게, 모바일에서는 숨김 */}
             <Link href="/" className="md:flex hidden items-center">
               <Image
-                src="/images/홈피로고.png"
+                src="/images/로고.png"
                 alt="출판사 로고"
-                width={280}
-                height={70}
-                className="h-14 w-auto"
+                width={180}
+                height={120}
+                className="h-12 md:h-16 w-auto object-contain"
                 priority
               />
             </Link>
           </div>
 
-          {/* 모바일에서만 표시되는 중앙 로고 */}
-          <div className="md:hidden flex justify-center items-center w-1/3">
-            <Link href="/" className="flex items-center py-2">
-              <div className="flex items-center">
+          {/* 모바일: 중앙에 로고가 꽉 차게 */}
+          <div className="md:hidden flex justify-center items-center w-2/3">
+            <Link href="/" className="flex items-center py-2 w-full">
+              <div className="flex items-center w-full">
                 <Image
-                  src="/images/홈피로고.png"
+                  src="/images/로고.png"
                   alt="출판사 로고"
-                  width={240}
-                  height={60}
-                  className="h-14 w-auto"
+                  width={500}
+                  height={300}
+                  className="w-full max-w-[260px] max-h-[120px] object-contain"
+                  priority
                 />
               </div>
             </Link>
@@ -78,7 +79,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
           <div className="flex flex-col space-y-4">
             <Link 
               href="/about"
-              className={`py-2 border-b border-gray-100 text-black ${activeMenu === "about" ? "font-bold" : ""}`}
+              className={`py-2 border-b border-gray-300 text-black ${activeMenu === "about" ? "font-bold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
@@ -87,14 +88,14 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             <div>
               <Link 
                 href="/books"
-                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "books" ? "font-bold" : ""}`}
+                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "books" ? "font-bold" : ""}`}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
                 아이와글 책장
               </Link>
               {activeMenu === "books" && (
-                <div className="pl-4 border-l border-gray-200 my-2">
+                <div className="pl-4 border-l border-gray-300 my-2">
                   <Link 
                     href="/books/summer"
                     className={`py-1 block text-black ${activeSubmenu === "summer" ? "font-bold" : ""}`}
@@ -108,7 +109,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             </div>
             <Link 
               href="/series"
-              className={`py-2 border-b border-gray-100 text-black ${activeMenu === "series" ? "font-bold" : ""}`}
+              className={`py-2 border-b border-gray-300 text-black ${activeMenu === "series" ? "font-bold" : ""}`}
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
@@ -117,14 +118,14 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             <div>
               <Link 
                 href="/contents"
-                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "contents" ? "font-bold" : ""}`}
+                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "contents" ? "font-bold" : ""}`}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
                 아이와글 자료실
               </Link>
               {activeMenu === "contents" && (
-                <div className="pl-4 border-l border-gray-200 my-2">
+                <div className="pl-4 border-l border-gray-300 my-2">
                   <Link 
                     href="/contents/news"
                     className={`py-1 block text-black ${activeSubmenu === "news" ? "font-bold" : ""}`}
@@ -147,14 +148,14 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             <div>
               <Link 
                 href="/goods"
-                className={`py-2 block border-b border-gray-100 text-black ${activeMenu === "goods" ? "font-bold" : ""}`}
+                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "goods" ? "font-bold" : ""}`}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
                 아이와글 소식
               </Link>
               {activeMenu === "goods" && (
-                <div className="pl-4 border-l border-gray-200 my-2">
+                <div className="pl-4 border-l border-gray-300 my-2">
                   <Link 
                     href="/goods/pen"
                     className={`py-1 block text-black ${activeSubmenu === "pen" ? "font-bold" : ""}`}
@@ -175,7 +176,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               )}
             </div>
             <button 
-              className="mt-6 p-2 border border-gray-200 rounded w-full text-black" 
+              className="mt-6 p-2 border border-gray-300 rounded w-full text-black" 
               onClick={() => setMobileMenuOpen(false)}
               style={{color: 'black'}}
             >
@@ -185,10 +186,10 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
         </div>
       )}
 
-      {/* 데스크탑 네비게이션 - 단일 nav */}
-      <nav className="hidden md:block border-b border-gray-200">
+      {/* 데스크탑 네비게이션 */}
+      <div className="hidden md:block border-b border-gray-300">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-center mb-4">
+          <div className="flex items-center justify-center">
             <Link href="/" className="flex items-center">
               {/* 로고 제거됨 */}
             </Link>
@@ -211,7 +212,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               >
                 아이와글 책장
               </Link>
-              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+              <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
                 <ul className="space-y-2">
                   <li>
                     <Link 
@@ -242,7 +243,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               >
                 아이와글 자료실
               </Link>
-              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+              <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
                 <ul className="space-y-2">
                   <li>
                     <Link 
@@ -273,7 +274,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
               >
                 아이와글 소식
               </Link>
-              <div className="absolute hidden group-hover:block bg-white border border-gray-200 p-4 min-w-48 z-10">
+              <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
                 <ul className="space-y-2">
                   <li>
                     <Link 
@@ -298,22 +299,21 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             </li>
           </ul>
         </div>
-      </nav>
+      </div>
 
-      <main className={fullWidth ? "w-full p-0 m-0" : ""}>
-        {children}
-      </main>
+      {/* 메인 콘텐츠 영역 */}
+      <main className={fullWidth ? "w-full p-0 m-0" : ""}>{children}</main>
 
-      <footer className="border-t border-gray-200 mt-12">
+      <footer className="border-t border-gray-300 mt-12">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <div className="flex items-center">
                 <Image
-                  src="/images/홈피로고.png"
+                  src="/images/로고.png"
                   alt="출판사 로고"
                   width={180}
-                  height={45}
+                  height={75}
                   className="h-10 w-auto"
                 />
               </div>

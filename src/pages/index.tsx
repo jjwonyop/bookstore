@@ -35,9 +35,9 @@ export default function Home() {
         <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
       </Head>
       
-      <div className="w-full" style={{color: 'black'}}>
+      <div className="w-full mt-0 pt-0 md:mt-0 md:pt-0" style={{color: 'black'}}>
         {/* 전체화면 스와이퍼 배너 영역 */}
-        <section className="w-full">
+        <section className="w-full mt-0 md:mt-0 overflow-hidden">
           {mounted && (
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
@@ -72,7 +72,7 @@ export default function Home() {
                           src="/images/main/pc/PC-대문.png"
                           alt="출판사 아이와글 데스크탑 배너"
                           fill
-                          className="object-contain"
+                          className="full"
                           priority
                         />
                       </div>
@@ -99,7 +99,7 @@ export default function Home() {
                           src="/images/main/pc/대문2-PC.png"
                           alt="출판사 아이와글 데스크탑 배너 2"
                           fill
-                          className="object-contain"
+                          className="full"
                         />
                       </div>
                     </div>
@@ -160,7 +160,7 @@ export default function Home() {
                     />
                   </div>
                   <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>리오와 스피치 마법학교</p>
-                  <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-200 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
+                  <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
                     자세히 보기
                   </Link>
                 </div>
@@ -203,7 +203,7 @@ export default function Home() {
           }
           
           .swiper {
-            padding-bottom: 40px;
+            padding-bottom: 0px;
           }
           
           /* 메인 스와이퍼 특별 스타일 */
@@ -215,7 +215,7 @@ export default function Home() {
           
           .mainSwiper .swiper-pagination {
             position: absolute;
-            bottom: 20px !important;
+            bottom: 0px !important;
           }
           
           .mainSwiper .swiper-pagination-bullet {

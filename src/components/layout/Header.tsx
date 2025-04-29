@@ -75,7 +75,7 @@ const Header = () => {
         <Link href="/" className="text-xl font-bold">
           <span className="sr-only">출판사 아이와 글</span>
           {/* 로고 이미지는 나중에 추가 */}
-          <div className="h-8 w-32 bg-gray-200 flex items-center justify-center">로고</div>
+          <div className="h-8 w-32 bg-gray-100 flex items-center justify-center">로고</div>
         </Link>
 
         {/* 데스크탑 메뉴 */}
@@ -129,7 +129,7 @@ const Header = () => {
         <div className="md:hidden bg-white border-t">
           <div className="container mx-auto py-3">
             {menuItems.map((item) => (
-              <div key={item.name} className="border-b border-gray-100 last:border-0">
+              <div key={item.name} className="border-b border-gray-300 last:border-0">
                 <div className="flex justify-between items-center py-3">
                   <Link 
                     href={item.href}
