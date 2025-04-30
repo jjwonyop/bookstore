@@ -1,10 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/layout/Layout";
+import Head from "next/head";
 
 export default function Books() {
   return (
     <Layout activeMenu="books">
+      <Head>
+        <title>출판사 아이와글</title>
+        <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
+      </Head>
       <div className="container mx-auto px-4 md:py-16 py-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-20 text-center">아이와 글 책장</h2>
 

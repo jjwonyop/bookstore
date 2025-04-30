@@ -65,8 +65,8 @@ export default function Rio() {
   return (
     <Layout activeMenu="series">
       <Head>
-        <title>리오와 스피치 마법학교 - 출판사 아이와글</title>
-        <meta name="description" content="리오와 스피치 마법학교 - 출판사 아이와글" />
+        <title>출판사 아이와글</title>
+        <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
       </Head>
 
       <div className="container mx-auto px-4 md:py-16 py-4">
@@ -74,13 +74,12 @@ export default function Rio() {
         <div className="flex flex-col md:flex-row gap-8">
           {/* 이미지 */}
           <div className="w-full md:w-1/3 lg:w-1/4 flex justify-center">
-            <div className="relative aspect-[3/4] w-full mb-4">
+            <div className="relative w-full h-[300px] md:w-56 md:h-80">
               <Image
                 src="/images/series/갤러리1.jpeg"
                 alt="리오"
                 fill
-                className="object-cover rounded-sm"
-                sizes="(max-width: 768px) 90vw, 30vw"
+                className="object-contain"
                 priority
               />
             </div>
@@ -91,32 +90,32 @@ export default function Rio() {
             <h2 className="text-2xl md:text-3xl font-bold">작품명 - 리오</h2>
             <PaintInfo />
             
-            <div className="mt-6">
-              <h3 className="text-lg font-medium">구매정보</h3>
-              <div className="py-4">
-                <div className="flex justify-between items-center py-2">
+            <div className="mt-4">
+              <h3 className="text-lg font-medium mb-2">구매정보</h3>
+              <div className="py-2">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-gray-700">구성</span>
                   <span className="text-right">원화</span>
                 </div>
-                <div className="flex justify-between items-center py-2">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-gray-700">금액</span>
                   <span className="text-right">KRW 150,000</span>
                 </div>
-                <div className="flex justify-between items-center py-2">
+                <div className="flex justify-between items-center py-1">
                   <span className="text-gray-700">문의</span>
                   <span className="text-right">031-360-3994</span>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-2">
-                  <span className="text-gray-700 mb-2 sm:mb-0">구매링크</span>
-                  <span className="w-full sm:w-auto text-right">
+                <div className="flex justify-between items-center py-1">
+                  <span className="text-gray-700">구매링크</span>
+                  <span className="text-right">
                     <Link
                       key={store.name}
                       href={store.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-4 py-2 bg-gray-100 text-black hover:bg-gray-200 rounded-md text-sm transition-colors"
+                      className="inline-block px-4 py-1 bg-gray-100 text-black hover:bg-gray-200 rounded-md text-sm transition-colors"
                     >
-                      {store.name}
+                      네이버 스마트 스토어
                     </Link>
                   </span>
                 </div>
