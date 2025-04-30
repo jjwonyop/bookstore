@@ -122,7 +122,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
-                아이와글 자료실
+                아이와글 교육
               </Link>
               {activeMenu === "contents" && (
                 <div className="pl-4 border-l border-gray-300 my-2">
@@ -241,7 +241,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 className={activeMenu === "contents" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
-                아이와글 자료실
+                아이와글 교육
               </Link>
               <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
                 <ul className="space-y-2">

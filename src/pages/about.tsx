@@ -34,7 +34,7 @@ export default function About() {
           <div className="w-full flex flex-col m-0 p-0">
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/mobile/모바일용-출판사소개.png"
+                src="/images/about/mobile/모바일-소개1.png"
                 alt="출판사 아이와글 소개"
                 width={500}
                 height={800}
@@ -71,7 +71,7 @@ export default function About() {
           <div className="w-full flex flex-col m-0 p-0">
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/pc/출판사소개-1.png"
+                src="/images/about/pc/소개-1.png"
                 alt="출판사 무제 소개"
                 width={1200}
                 height={600}

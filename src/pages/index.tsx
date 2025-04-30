@@ -14,12 +14,12 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   // 화면 크기 확인 함수
   const checkMobile = () => {
     setIsMobile(window.innerWidth < 768);
   };
-  
+
   // 클라이언트 사이드에서만 Swiper를 마운트하도록 처리
   useEffect(() => {
     checkMobile();
@@ -34,8 +34,8 @@ export default function Home() {
         <title>출판사 아이와글</title>
         <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
       </Head>
-      
-      <div className="w-full mt-0 pt-0 md:mt-0 md:pt-0" style={{color: 'black'}}>
+
+      <div className="w-full mt-0 pt-0 md:mt-0 md:pt-0" style={{ color: 'black' }}>
         {/* 전체화면 스와이퍼 배너 영역 */}
         <section className="w-full mt-0 md:mt-0 overflow-hidden">
           {mounted && (
@@ -61,7 +61,7 @@ export default function Home() {
                         src="/images/main/mobile/모바일-대문.png"
                         alt="출판사 아이와글 모바일 배너"
                         fill
-                        className="object-contain"
+                        className="full"
                         priority
                       />
                     </div>
@@ -80,7 +80,7 @@ export default function Home() {
                   )}
                 </div>
               </SwiperSlide>
-              
+
               <SwiperSlide>
                 <div className="relative w-full">
                   {isMobile ? (
@@ -89,7 +89,7 @@ export default function Home() {
                         src="/images/main/mobile/대문2-모바일.png"
                         alt="출판사 아이와글 모바일 배너 2"
                         fill
-                        className="object-contain"
+                        className="full"
                       />
                     </div>
                   ) : (
@@ -110,24 +110,11 @@ export default function Home() {
           )}
         </section>
 
-        <section className="py-10 md:py-16 container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-2 text-black" style={{color: 'black'}}>아이와글의 소식을</h2>
-            <h3 className="text-3xl md:text-4xl font-bold mb-10 text-black" style={{color: 'black'}}>확인하세요</h3>
-            <div className="flex justify-center space-x-8 md:space-x-12">
-              <Link href="/series" className="font-bold hover:text-gray-600 text-xl text-black" style={{color: 'black'}}>연재 →</Link>
-              <Link href="/contents/news" className="font-bold hover:text-gray-600 text-xl text-black" style={{color: 'black'}}>소식 →</Link>
-              <Link href="/contents/youtube" className="font-bold hover:text-gray-600 text-xl text-black" style={{color: 'black'}}>유튜브 →</Link>
-            </div>
-          </div>
-        </section>
-
         {mounted && (
-          <section className="mb-16 w-full">
+          <section className="mb-16 w-full py-10 md:py-16 container mx-auto px-4">
             <div className="container mx-auto px-4 mb-8">
-              <h2 className="text-3xl font-bold mb-8 text-center">출간 도서</h2>
+              <h2 className="text-3xl font-bold mb-8 text-center">신간 도서</h2>
             </div>
-            
             <Swiper
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={isMobile ? 10 : 30}
@@ -159,8 +146,8 @@ export default function Home() {
                       sizes="(max-width: 768px) 90vw, 30vw"
                     />
                   </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{color: 'black'}}>리오와 스피치 마법학교</p>
-                  <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{color: 'black'}}>
+                  <p className="text-xl font-bold text-center text-black mb-2" style={{ color: 'black' }}>리오와 스피치 마법학교</p>
+                  <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{ color: 'black' }}>
                     자세히 보기
                   </Link>
                 </div>
@@ -168,7 +155,53 @@ export default function Home() {
             </Swiper>
           </section>
         )}
-        
+
+        {mounted && (
+          <section className="mb-16 w-full py-10 md:py-16 container mx-auto px-4">
+            <div className="container mx-auto px-4 mb-8">
+              <h2 className="text-3xl font-bold mb-8 text-center">와글 아트</h2>
+            </div>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={isMobile ? 10 : 30}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 5000 }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              className="mySwiper w-full pb-12"
+              style={{ color: 'black' }}
+            >
+              <SwiperSlide>
+                <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
+                  <div className="relative aspect-[3/4] w-full mb-4">
+                    <Image
+                      src="/images/series/갤러리1.jpeg"
+                      alt="리오"
+                      fill
+                      className="object-cover rounded-sm"
+                      sizes="(max-width: 768px) 90vw, 30vw"
+                    />
+                  </div>
+                  <p className="text-xl font-bold text-center text-black mb-2" style={{ color: 'black' }}>&nbsp;&nbsp;&nbsp;작품명 - 리오&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                  <Link href="/series/rio" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{ color: 'black' }}>
+                    자세히 보기
+                  </Link>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </section>
+        )}
+
         {/* Swiper 커스텀 스타일 */}
         <style jsx global>{`
           .swiper-button-next,

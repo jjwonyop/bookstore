@@ -52,7 +52,7 @@ const Header = () => {
       subMenus: [],
     },
     {
-      name: '아이와글 자료실',
+      name: '아이와글 교육',
       href: '/contents',
       subMenus: [
         { name: '소식', href: '/contents/news' },
