@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
           
           <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} 출판사 아이와글., All rights reserved.
+            © 2025 출판사 아이와글., All rights reserved.
           </div>
         </div>
       </div>
