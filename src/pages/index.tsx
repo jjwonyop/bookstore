@@ -33,274 +33,261 @@ export default function Home() {
       <Head>
         <title>출판사 아이와글</title>
         <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <div className="w-full mt-0 pt-0 md:mt-0 md:pt-0" style={{ color: 'black' }}>
-        {/* 전체화면 스와이퍼 배너 영역 */}
-        <section className="w-full mt-0 md:mt-0 overflow-hidden">
-          {mounted && (
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={0}
-              slidesPerView={1}
-              navigation={true}
-              pagination={{ clickable: true }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-              }}
-              loop={true}
-              className="mainSwiper"
-            >
-              <SwiperSlide>
-                <div className="relative w-full">
-                  {isMobile ? (
-                    <div className="relative w-full h-screen max-h-[600px] overflow-hidden bg-white">
-                      <Image
-                        src="/images/main/mobile/모바일-대문.png"
-                        alt="출판사 아이와글 모바일 배너"
-                        fill
-                        className="full"
-                        priority
-                      />
+      <div className="w-full" style={{ color: 'black' }}>
+        {/* 메인 레이아웃 컨테이너 */}
+        <div className="w-full max-w-full mx-auto">
+          {/* 메인 콘텐츠 영역 */}
+          <div className="w-full px-0 py-0 overflow-hidden">
+            {/* 전체화면 스와이퍼 배너 영역 */}
+            <section className="w-full mb-0 p-0 m-0 overflow-hidden">
+              {mounted && (
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  navigation={!isMobile}
+                  pagination={{ clickable: true }}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                  }}
+                  loop={true}
+                  className="mainSwiper p-0 m-0"
+                >
+                  <SwiperSlide className="flex justify-center items-center p-0 m-0">
+                    <div className="relative w-full m-0 p-0">
+                      {isMobile ? (
+                        <div className="relative w-full h-auto overflow-hidden m-0 p-0">
+                          <Image
+                            src="/images/main/mobile/모바일-대문.png"
+                            alt="출판사 아이와글 모바일 배너"
+                            width={390}
+                            height={800}
+                            className="w-full h-auto m-0 p-0"
+                            priority
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative w-full flex justify-center items-center p-0 m-0">
+                          <div className="relative w-full h-auto bg-transparent p-0 m-0">
+                            <Image
+                              src="/images/main/pc/PC-대문.png"
+                              alt="출판사 아이와글 데스크탑 배너"
+                              width={1920}
+                              height={1080}
+                              className="w-full h-auto"
+                              style={{
+                                maxHeight: '80vh',
+                                objectFit: 'cover'
+                              }}
+                              priority
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div className="relative w-full h-auto bg-white flex justify-center">
-                      <div className="relative w-[90%] aspect-[16/9] max-h-[80vh]">
-                        <Image
-                          src="/images/main/pc/PC-대문.png"
-                          alt="출판사 아이와글 데스크탑 배너"
-                          fill
-                          className="full"
-                          priority
-                        />
-                      </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide className="flex justify-center items-center p-0 m-0">
+                    <div className="relative w-full m-0 p-0">
+                      {isMobile ? (
+                        <div className="relative w-full h-auto overflow-hidden m-0 p-0">
+                          <Image
+                            src="/images/main/mobile/대문2-모바일.png"
+                            alt="출판사 아이와글 모바일 배너 2"
+                            width={390}
+                            height={800}
+                            className="w-full h-auto m-0 p-0"
+                          />
+                        </div>
+                      ) : (
+                        <div className="relative w-full flex justify-center items-center p-0 m-0">
+                          <div className="relative w-full h-auto bg-transparent p-0 m-0">
+                            <Image
+                              src="/images/main/pc/대문2-PC.png"
+                              alt="출판사 아이와글 데스크탑 배너 2"
+                              width={1920}
+                              height={1080}
+                              className="w-full h-auto"
+                              style={{
+                                maxHeight: '80vh',
+                                objectFit: 'cover'
+                              }}
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              </SwiperSlide>
+                  </SwiperSlide>
+                </Swiper>
+              )}
+            </section>
 
-              <SwiperSlide>
-                <div className="relative w-full">
-                  {isMobile ? (
-                    <div className="relative w-full h-screen max-h-[600px] overflow-hidden bg-white">
-                      <Image
-                        src="/images/main/mobile/대문2-모바일.png"
-                        alt="출판사 아이와글 모바일 배너 2"
-                        fill
-                        className="full"
-                      />
-                    </div>
-                  ) : (
-                    <div className="relative w-full h-auto bg-white flex justify-center">
-                      <div className="relative w-[90%] aspect-[16/9] max-h-[80vh]">
-                        <Image
-                          src="/images/main/pc/대문2-PC.png"
-                          alt="출판사 아이와글 데스크탑 배너 2"
-                          fill
-                          className="full"
-                        />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          )}
-        </section>
+            {/* 소식 섹션 */}
+            <section className="mb-6 md:mb-10 mt-2 md:mt-0 container mx-auto px-4">
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="text-xl md:text-2xl font-bold">소식</h2>
+                <Link href="/news" className="text-sm underline">더보기</Link>
+              </div>
+              <div className="border-t border-gray-300 pt-3">
+                <ul className="space-y-2">
+                  <li className="pb-2 border-b border-gray-100">
+                    <Link href="/news/1" className="block hover:bg-gray-50 p-2">
+                      <h3 className="font-medium mb-1 text-sm md:text-base">[행사소식] 아이와글 작가 강연회 안내</h3>
+                      <p className="text-gray-600 text-xs md:text-sm">아이와글 작가 강연회를 개최합니다. 많은 참여 부탁드립니다.</p>
+                    </Link>
+                  </li>
+                  <li className="pb-2 border-b border-gray-100">
+                    <Link href="/news/2" className="block hover:bg-gray-50 p-2">
+                      <h3 className="font-medium mb-1 text-sm md:text-base">[도서소식] 아이와글 2024 도서목록 안내</h3>
+                      <p className="text-gray-600 text-xs md:text-sm">2024년 아이와글 도서목록 PDF 파일을 공유드립니다.</p>
+                    </Link>
+                  </li>
+                  <li className="pb-2 border-b border-gray-100">
+                    <Link href="/news/3" className="block hover:bg-gray-50 p-2">
+                      <h3 className="font-medium mb-1 text-sm md:text-base">[행사소식] 독자와의 만남 행사 안내</h3>
+                      <p className="text-gray-600 text-xs md:text-sm">아이와글 작가와 독자와의 만남 행사를 진행합니다.</p>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
 
-        {mounted && (
-          <section className="mb-16 w-full py-10 md:py-16 container mx-auto px-4">
-            <div className="container mx-auto px-4 mb-8">
-              <h2 className="text-3xl font-bold mb-8 text-center">신간 도서</h2>
-            </div>
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={isMobile ? 10 : 30}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 5000 }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-              }}
-              className="mySwiper w-full pb-12"
-              style={{ color: 'black' }}
-            >
-              <SwiperSlide>
-                <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
-                  <div className="relative aspect-[3/4] w-full mb-4">
-                    <Image
-                      src="/images/books/책이미지.png"
-                      alt="리오와 스피치 마법학교"
-                      fill
-                      className="object-cover rounded-sm"
-                      sizes="(max-width: 768px) 90vw, 30vw"
-                    />
-                  </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{ color: 'black' }}>리오와 스피치 마법학교</p>
-                  <Link href="/books/summer" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{ color: 'black' }}>
-                    자세히 보기
-                  </Link>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </section>
-        )}
-
-        {mounted && (
-          <section className="mb-16 w-full py-10 md:py-16 container mx-auto px-4">
-            <div className="container mx-auto px-4 mb-8">
-              <h2 className="text-3xl font-bold mb-8 text-center">와글 아트</h2>
-            </div>
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={isMobile ? 10 : 30}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 5000 }}
-              breakpoints={{
-                640: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
-                },
-              }}
-              className="mySwiper w-full pb-12"
-              style={{ color: 'black' }}
-            >
-              <SwiperSlide>
-                <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-lg transition-shadow h-full mx-auto max-w-xs">
-                  <div className="relative aspect-[3/4] w-full mb-4">
-                    <Image
-                      src="/images/series/갤러리1.jpeg"
-                      alt="리오"
-                      fill
-                      className="object-cover rounded-sm"
-                      sizes="(max-width: 768px) 90vw, 30vw"
-                    />
-                  </div>
-                  <p className="text-xl font-bold text-center text-black mb-2" style={{ color: 'black' }}>&nbsp;&nbsp;&nbsp;작품명 - 리오&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                  <Link href="/series/rio" className="text-center font-bold mt-auto py-3 border-t border-gray-300 mt-2 hover:text-gray-600 text-black" style={{ color: 'black' }}>
-                    자세히 보기
-                  </Link>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </section>
-        )}
-
-        {/* Swiper 커스텀 스타일 */}
-        <style jsx global>{`
-          .swiper-button-next,
-          .swiper-button-prev {
-            color: #000 !important;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
+      {/* Swiper 커스텀 스타일 */}
+      <style jsx global>{`
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #000 !important;
+          width: 30px;
+          height: 30px;
+          background-color: rgba(255, 255, 255, 0.7);
+          border-radius: 50%;
+          z-index: 10;
+        }
+        
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background: #000 !important;
+        }
+        
+        .swiper-pagination {
+          position: absolute !important;
+          bottom: 10px !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          z-index: 10;
+        }
+        
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto !important;
+          width: 100% !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        
+        .swiper {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100%;
+        }
+        
+        /* 메인 스와이퍼 특별 스타일 */
+        .mainSwiper {
+          width: 100%;
+          height: auto;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        
+        @media (min-width: 1024px) {
+          .mainSwiper {
+            min-height: 500px;
           }
-          
-          .swiper-button-next:after,
-          .swiper-button-prev:after {
-            font-size: 18px;
-            font-weight: bold;
-          }
-          
-          .swiper-pagination-bullet-active {
-            background: #000 !important;
-          }
-          
-          .swiper-pagination {
-            position: relative;
-            bottom: 0 !important;
-            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+          .mainSwiper {
+            padding: 0 !important;
+            margin: 0 !important;
           }
           
           .swiper-slide {
-            display: flex;
-            justify-content: center;
-            height: auto !important;
+            padding: 0 !important;
+            margin: 0 !important;
           }
           
-          .swiper {
-            padding-bottom: 0px;
+          .swiper-pagination {
+            position: absolute !important;
+            bottom: 10px !important;
           }
-          
-          /* 메인 스와이퍼 특별 스타일 */
-          .mainSwiper {
-            width: 100%;
-            height: auto;
-            padding-bottom: 0;
-          }
-          
-          .mainSwiper .swiper-pagination {
-            position: absolute;
-            bottom: 0px !important;
-          }
-          
-          .mainSwiper .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0.5;
-            margin: 0 6px;
-          }
-          
-          .mainSwiper .swiper-pagination-bullet-active {
-            background-color: #000 !important;
+        }
+        
+        .mainSwiper .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background-color: rgba(0, 0, 0, 0.5);
+          opacity: 0.5;
+          margin: 0 4px;
+        }
+        
+        .mainSwiper .swiper-pagination-bullet-active {
+          background-color: #000 !important;
+          opacity: 1;
+        }
+        
+        /* 네비게이션 버튼 관련 스타일 수정 */
+        .mainSwiper .swiper-button-next,
+        .mainSwiper .swiper-button-prev {
+          opacity: 0.7;
+          background-color: rgba(255, 255, 255, 0.7);
+          width: 30px;
+          height: 30px;
+          transition: opacity 0.3s ease;
+        }
+        
+        .mainSwiper .swiper-button-next:after,
+        .mainSwiper .swiper-button-prev:after {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        
+        /* PC에서 호버 시 네비게이션 버튼 표시 */
+        @media (min-width: 769px) {
+          .mainSwiper:hover .swiper-button-next,
+          .mainSwiper:hover .swiper-button-prev {
             opacity: 1;
           }
           
-          /* 네비게이션 버튼 관련 스타일 수정 */
+          .mainSwiper .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+          }
+        }
+        
+        /* 모바일에서 네비게이션 버튼 숨김 */
+        @media (max-width: 768px) {
           .mainSwiper .swiper-button-next,
           .mainSwiper .swiper-button-prev {
-            opacity: 0;
-            background-color: rgba(255, 255, 255, 0.7);
-            width: 40px;
-            height: 40px;
-            transition: opacity 0.3s ease;
+            display: none;
           }
-          
-          .mainSwiper .swiper-button-next:after,
-          .mainSwiper .swiper-button-prev:after {
-            font-size: 18px;
-            font-weight: bold;
-          }
-          
-          /* PC에서 호버 시 네비게이션 버튼 표시 */
-          @media (min-width: 769px) {
-            .mainSwiper:hover .swiper-button-next,
-            .mainSwiper:hover .swiper-button-prev {
-              opacity: 1;
-            }
-          }
-          
-          /* 모바일에서 네비게이션 버튼 숨김 */
-          @media (max-width: 768px) {
-            .mainSwiper .swiper-button-next,
-            .mainSwiper .swiper-button-prev {
-              display: none;
-            }
-          }
-          
-          .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-          }
-        `}</style>
-      </div>
+        }
+      `}</style>
     </Layout>
   );
 }

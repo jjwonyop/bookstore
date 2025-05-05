@@ -304,24 +304,10 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
       {/* 메인 콘텐츠 영역 */}
       <main className={fullWidth ? "w-full p-0 m-0" : ""}>{children}</main>
 
-      <footer className="border-t border-gray-300 mt-12">
+      <footer className="border-t border-yellow-300 mt-12" style={{ backgroundColor: '#F9DB35' }}>
         <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <div className="flex items-center">
-                <Image
-                  src="/images/로고.png"
-                  alt="출판사 로고"
-                  width={180}
-                  height={75}
-                  className="h-10 w-auto"
-                />
-              </div>
-            </div>
-            <div>
-              <Link href="/terms" className="text-sm text-black hover:underline" style={{color: 'black'}}>이용약관</Link>
-              <p className="text-sm mt-2" style={{color: 'black'}}>© 2025 출판사 아이와글., All rights reserved.</p>
-            </div>
+          <div className="pt-4 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-800 font-medium">© 2025 출판사 아이와글, All rights reserved.</p>
           </div>
         </div>
       </footer>
