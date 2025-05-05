@@ -136,21 +136,22 @@ export default function Home() {
               <div className="border-t border-gray-300 pt-3">
                 <ul className="space-y-2">
                   <li className="pb-2 border-b border-gray-100">
-                    <Link href="/news/1" className="block hover:bg-gray-50 p-2">
-                      <h3 className="font-medium mb-1 text-sm md:text-base">[행사소식] 아이와글 작가 강연회 안내</h3>
-                      <p className="text-gray-600 text-xs md:text-sm">아이와글 작가 강연회를 개최합니다. 많은 참여 부탁드립니다.</p>
-                    </Link>
-                  </li>
-                  <li className="pb-2 border-b border-gray-100">
-                    <Link href="/news/2" className="block hover:bg-gray-50 p-2">
-                      <h3 className="font-medium mb-1 text-sm md:text-base">[도서소식] 아이와글 2024 도서목록 안내</h3>
-                      <p className="text-gray-600 text-xs md:text-sm">2024년 아이와글 도서목록 PDF 파일을 공유드립니다.</p>
-                    </Link>
-                  </li>
-                  <li className="pb-2 border-b border-gray-100">
-                    <Link href="/news/3" className="block hover:bg-gray-50 p-2">
-                      <h3 className="font-medium mb-1 text-sm md:text-base">[행사소식] 독자와의 만남 행사 안내</h3>
-                      <p className="text-gray-600 text-xs md:text-sm">아이와글 작가와 독자와의 만남 행사를 진행합니다.</p>
+                    <Link href="/news/new-books" className="block hover:bg-gray-50 p-2">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-20 h-20 flex-shrink-0">
+                          <Image
+                            src="/images/books/책이미지.png"
+                            alt="리오와 스피치 마법학교"
+                            fill
+                            className="object-cover rounded"
+                            sizes="80px"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-1 text-sm md:text-base">[신간소식] 아이와글 신간 안내</h3>
+                          <p className="text-gray-600 text-xs md:text-sm">어린이 스피치 교육 전문 출판사 아이와글에서 새로운 신간 『리오와 스피치 마법학교』를 소개합니다.</p>
+                        </div>
+                      </div>
                     </Link>
                   </li>
                 </ul>

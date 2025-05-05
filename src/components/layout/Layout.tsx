@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 interface LayoutProps {
   children: ReactNode;
-  activeMenu?: "about" | "books" | "series" | "contents" | "goods";
+  activeMenu?: "about" | "books" | "series" | "contents" | "news";
   activeSubmenu?: string;
   fullWidth?: boolean;
 }
@@ -147,33 +147,13 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             </div>
             <div>
               <Link 
-                href="/goods"
-                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "goods" ? "font-bold" : ""}`}
+                href="/news"
+                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "news" ? "font-bold" : ""}`}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{color: 'black'}}
               >
                 아이와글 소식
               </Link>
-              {activeMenu === "goods" && (
-                <div className="pl-4 border-l border-gray-300 my-2">
-                  <Link 
-                    href="/goods/pen"
-                    className={`py-1 block text-black ${activeSubmenu === "pen" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{color: 'black'}}
-                  >
-                    만년필
-                  </Link>
-                  <Link 
-                    href="/goods/note"
-                    className={`py-1 block text-black ${activeSubmenu === "note" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{color: 'black'}}
-                  >
-                    노트
-                  </Link>
-                </div>
-              )}
             </div>
             <button 
               className="mt-6 p-2 border border-gray-300 rounded w-full text-black" 
@@ -247,7 +227,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 <ul className="space-y-2">
                   <li>
                     <Link 
-                      href="/contents/news" 
+                      href="/contents/naver" 
                       className={activeSubmenu === "news" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                       style={{color: 'black'}}
                     >
@@ -268,34 +248,12 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             </li>
             <li className="relative group">
               <Link 
-                href="/goods" 
-                className={activeMenu === "goods" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                href="/news" 
+                className={activeMenu === "news" ? "font-bold text-black" : "text-black hover:text-gray-600"}
                 style={{color: 'black'}}
               >
                 아이와글 소식
               </Link>
-              <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
-                <ul className="space-y-2">
-                  <li>
-                    <Link 
-                      href="/goods/pen" 
-                      className={activeSubmenu === "pen" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{color: 'black'}}
-                    >
-                      만년필
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      href="/goods/note" 
-                      className={activeSubmenu === "note" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{color: 'black'}}
-                    >
-                      노트
-                    </Link>
-                  </li>
-                </ul>
-              </div>
             </li>
           </ul>
         </div>

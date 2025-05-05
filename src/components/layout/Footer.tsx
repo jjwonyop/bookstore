@@ -30,17 +30,13 @@ const Footer = () => {
             <div>
               <h3 className="font-medium mb-3">콘텐츠</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link href="/contents/news">소식</Link></li>
+                <li><Link href="/contents/naver">소식</Link></li>
                 <li><Link href="/contents/youtube">유튜브</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-medium mb-3">굿즈</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link href="/goods/fountain-pen">만년필</Link></li>
-                <li><Link href="/goods/notebook">노트</Link></li>
-              </ul>
+              <h3 className="font-medium mb-3">뉴스</h3>
             </div>
           </div>
         </div>
