@@ -17,7 +17,12 @@ const nextConfig = {
         pathname: '**',
       }
     ],
+    // 정적 빌드 시 이미지 최적화를 비활성화
     unoptimized: true,
+    // 이미지 최적화 설정
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp', 'image/avif'],
   },
   // 커스텀 도메인 사용 시 basePath 필요 없음
   // ...(process.env.NODE_ENV === 'production' ? { basePath: '/bookstore' } : {}),
