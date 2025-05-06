@@ -5,9 +5,9 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
-        <link rel="icon" href={getStaticImagePath("/cropped-favicon.png")} type="image/png" />
-        <link rel="apple-touch-icon" href={getStaticImagePath("/cropped-favicon.png")} />
-        <link rel="shortcut icon" href={getStaticImagePath("/cropped-favicon.png")} />
+        <link rel="icon" href="/cropped-favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/cropped-favicon.png" />
+        <link rel="shortcut icon" href="/cropped-favicon.png" />
         <meta name="theme-color" content="#ffffff" />
         
         {/* 기본 OG 태그 설정 */}

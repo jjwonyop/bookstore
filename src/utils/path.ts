@@ -71,6 +71,17 @@ export const useImagePath = (): (path: string) => string => {
     // 슬래시로 시작하지 않는 경우 슬래시 추가
     const normalizedPath = path.startsWith('/') ? path : `/${path}`;
     
-    return `${router.basePath}${normalizedPath}`;
+    // 이미지 확장자가 png, jpg, jpeg인 경우 webp로 변경
+    let optimizedPath = normalizedPath;
+    const extensions = ['.png', '.jpg', '.jpeg', '.PNG', '.JPG', '.JPEG'];
+    
+    for (const ext of extensions) {
+      if (normalizedPath.endsWith(ext)) {
+        optimizedPath = normalizedPath.replace(ext, '.webp');
+        break;
+      }
+    }
+    
+    return `${router.basePath}${optimizedPath}`;
   };
 }; 
