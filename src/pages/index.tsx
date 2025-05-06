@@ -44,93 +44,91 @@ export default function Home() {
           {/* 메인 콘텐츠 영역 */}
           <div className="w-full px-0 py-0 overflow-hidden">
             {/* 전체화면 스와이퍼 배너 영역 */}
-            <section className="w-full mb-0 p-0 m-0 overflow-hidden">
+            <section className="w-full mb-8 p-0 overflow-hidden bg-gray-50">
               {mounted && (
-                <Swiper
-                  modules={[Navigation, Pagination, Autoplay]}
-                  spaceBetween={0}
-                  slidesPerView={1}
-                  navigation={!isMobile}
-                  pagination={{ clickable: true }}
-                  autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true
-                  }}
-                  loop={true}
-                  className="mainSwiper p-0 m-0"
-                >
-                  <SwiperSlide className="flex justify-center items-center p-0 m-0">
-                    <div className="relative w-full m-0 p-0">
-                      {isMobile ? (
-                        <div className="relative w-full h-auto overflow-hidden m-0 p-0">
-                          <Image
-                            src={getImagePath("/images/main/mobile/모바일-대문.png")}
-                            alt="출판사 아이와글 모바일 배너"
-                            width={390}
-                            height={800}
-                            className="w-full h-auto m-0 p-0"
-                            priority
-                          />
-                        </div>
-                      ) : (
-                        <div className="relative w-full flex justify-center items-center p-0 m-0">
-                          <div className="relative w-full h-auto bg-transparent p-0 m-0">
+                <div className="container mx-auto">
+                  <Swiper
+                    modules={[Navigation, Pagination, Autoplay]}
+                    spaceBetween={0}
+                    slidesPerView={1}
+                    navigation={!isMobile}
+                    pagination={{ clickable: true }}
+                    autoplay={{
+                      delay: 5000,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true
+                    }}
+                    loop={true}
+                    className="mainSwiper p-0"
+                  >
+                    <SwiperSlide className="flex justify-center items-center p-0">
+                      <div className="relative w-full">
+                        {isMobile ? (
+                          <div className="relative w-full h-auto overflow-hidden">
+                            <Image
+                              src={getImagePath("/images/main/mobile/모바일-대문.png")}
+                              alt="출판사 아이와글 모바일 배너"
+                              width={390}
+                              height={800}
+                              className="w-full h-auto"
+                              priority
+                            />
+                          </div>
+                        ) : (
+                          <div className="relative">
                             <Image
                               src={getImagePath("/images/main/pc/PC-대문.png")}
                               alt="출판사 아이와글 데스크탑 배너"
                               width={1920}
                               height={1080}
-                              className="w-full h-auto"
+                              className="w-full h-auto rounded-lg shadow-md"
                               style={{
-                                maxHeight: '80vh',
+                                maxHeight: '70vh',
                                 objectFit: 'cover'
                               }}
                               priority
                             />
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  </SwiperSlide>
+                        )}
+                      </div>
+                    </SwiperSlide>
 
-                  <SwiperSlide className="flex justify-center items-center p-0 m-0">
-                    <div className="relative w-full m-0 p-0">
-                      {isMobile ? (
-                        <div className="relative w-full h-auto overflow-hidden m-0 p-0">
-                          <Image
-                            src={getImagePath("/images/main/mobile/대문2-모바일.png")}
-                            alt="출판사 아이와글 모바일 배너 2"
-                            width={390}
-                            height={800}
-                            className="w-full h-auto m-0 p-0"
-                          />
-                        </div>
-                      ) : (
-                        <div className="relative w-full flex justify-center items-center p-0 m-0">
-                          <div className="relative w-full h-auto bg-transparent p-0 m-0">
+                    <SwiperSlide className="flex justify-center items-center p-0">
+                      <div className="relative w-full">
+                        {isMobile ? (
+                          <div className="relative w-full h-auto overflow-hidden">
+                            <Image
+                              src={getImagePath("/images/main/mobile/대문2-모바일.png")}
+                              alt="출판사 아이와글 모바일 배너 2"
+                              width={390}
+                              height={800}
+                              className="w-full h-auto"
+                            />
+                          </div>
+                        ) : (
+                          <div className="relative">
                             <Image
                               src={getImagePath("/images/main/pc/대문2-PC.png")}
                               alt="출판사 아이와글 데스크탑 배너 2"
                               width={1920}
                               height={1080}
-                              className="w-full h-auto"
+                              className="w-full h-auto rounded-lg shadow-md"
                               style={{
-                                maxHeight: '80vh',
+                                maxHeight: '70vh',
                                 objectFit: 'cover'
                               }}
                             />
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  </SwiperSlide>
-                </Swiper>
+                        )}
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
               )}
             </section>
 
             {/* 소식 섹션 */}
-            <section className="mb-6 md:mb-10 mt-2 md:mt-0 container mx-auto px-4">
+            <section className="mb-12 container mx-auto px-4">
               <div className="flex justify-between items-center mb-3">
                 <h2 className="text-xl md:text-2xl font-bold">소식</h2>
                 <Link href="/news" className="text-sm underline">더보기</Link>
@@ -138,7 +136,7 @@ export default function Home() {
               <div className="border-t border-gray-300 pt-3">
                 <ul className="space-y-2">
                   <li className="pb-2 border-b border-gray-100">
-                    <Link href="/news/new-books" className="block hover:bg-gray-50 p-2">
+                    <Link href="/news/new-books" className="block hover:bg-gray-50 p-2 rounded-lg">
                       <div className="flex items-center gap-4">
                         <div className="relative w-20 h-20 flex-shrink-0">
                           <Image
