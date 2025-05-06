@@ -11,15 +11,13 @@ const config = {
 
 // 이미지 파일을 찾기
 const findImages = async () => {
-  return new Promise((resolve, reject) => {
-    glob('public/images/**/*.{png,jpg,jpeg}', (err, files) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-      resolve(files);
-    });
-  });
+  try {
+    const files = await glob('public/images/**/*.{png,jpg,jpeg,PNG,JPG,JPEG}');
+    return files;
+  } catch (error) {
+    console.error('Error finding images:', error);
+    return [];
+  }
 };
 
 // 이미지 최적화 함수
