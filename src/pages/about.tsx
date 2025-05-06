@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Layout from '../components/layout/Layout';
+import { useImagePath } from '../utils/path';
 
 export default function About() {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const getImagePath = useImagePath();
 
   // 화면 크기 확인 함수
   const checkMobile = () => {
@@ -34,7 +36,7 @@ export default function About() {
           <div className="w-full flex flex-col m-0 p-0">
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/mobile/모바일-소개1.png"
+                src={getImagePath("/images/about/mobile/모바일-소개1.png")}
                 alt="출판사 아이와글 소개"
                 width={500}
                 height={800}
@@ -50,7 +52,7 @@ export default function About() {
             </div>
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/mobile/모바일용-출판사소개2.png"
+                src={getImagePath("/images/about/mobile/모바일용-출판사소개2.png")}
                 alt="출판사 아이와글 소개 하단"
                 width={500}
                 height={600}
@@ -71,7 +73,7 @@ export default function About() {
           <div className="w-full flex flex-col m-0 p-0">
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/pc/소개-1.png"
+                src={getImagePath("/images/about/pc/소개-1.png")}
                 alt="출판사 무제 소개"
                 width={1200}
                 height={600}
@@ -87,7 +89,7 @@ export default function About() {
             </div>
             <div className="w-full h-auto m-0 p-0">
               <Image
-                src="/images/about/pc/출판사소개-2.png"
+                src={getImagePath("/images/about/pc/출판사소개-2.png")}
                 alt="출판사 무제 소개 하단"
                 width={1200}
                 height={500}

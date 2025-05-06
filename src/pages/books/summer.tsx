@@ -3,6 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { useState } from "react";
+import { getImagePath } from "@/utils/path";
 
 // 탭 컴포넌트
 interface TabProps {
@@ -136,7 +137,7 @@ export default function Summer() {
           <div className="w-full md:w-1/3 lg:w-1/4 flex justify-center">
             <div className="relative w-48 md:w-56 h-64 md:h-80">
               <Image
-                src="/images/books/책이미지.png"
+                src={getImagePath("/images/books/책이미지.png")}
                 alt="리오와 스피치 마법학교"
                 fill
                 className="object-contain"

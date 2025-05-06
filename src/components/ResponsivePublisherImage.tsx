@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useImagePath } from "../../../../utils/path";
 import { useState, useEffect } from 'react';
 
 interface ResponsivePublisherImageProps {
@@ -45,7 +46,7 @@ const ResponsivePublisherImage: React.FC<ResponsivePublisherImageProps> = ({
           margin: '0 auto'
         }}>
           <Image
-            src="/images/about/mobile/모바일용-출판사소개.png"
+            src={getImagePath("/images/about/mobile/모바일용-출판사소개.png")}$1
             alt="출판사 무제 소개 (모바일)"
             fill
             sizes="100vw"
@@ -65,7 +66,7 @@ const ResponsivePublisherImage: React.FC<ResponsivePublisherImageProps> = ({
           margin: '0 auto'
         }}>
           <Image
-            src="/images/about/pc/출판사소개-1.png"
+            src={getImagePath("/images/about/pc/출판사소개-1.png")}$1
             alt="출판사 무제 소개 (데스크탑)"
             fill
             sizes="(min-width: 768px) 90vw, 100vw"

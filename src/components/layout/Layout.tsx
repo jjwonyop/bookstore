@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { Noto_Sans_KR } from "next/font/google";
+import { useImagePath } from "../../utils/path";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ interface LayoutProps {
 
 export default function Layout({ children, activeMenu, activeSubmenu, fullWidth = false }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const getImagePath = useImagePath();
 
   return (
     <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-white text-black`} style={{ color: 'black' }}>
@@ -38,7 +40,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             {/* PC: 좌측 상단에 로고 크게, 모바일에서는 숨김 */}
             <Link href="/" className="md:flex hidden items-center">
               <Image
-                src="/images/로고.png"
+                src={getImagePath("/images/로고.png")}
                 alt="출판사 로고"
                 width={180}
                 height={120}
@@ -53,7 +55,7 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             <Link href="/" className="flex items-center py-2 w-full">
               <div className="flex items-center w-full">
                 <Image
-                  src="/images/로고.png"
+                  src={getImagePath("/images/로고.png")}
                   alt="출판사 로고"
                   width={500}
                   height={300}

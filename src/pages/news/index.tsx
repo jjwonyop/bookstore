@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/layout/Layout";
 import Head from "next/head";
+import { getImagePath } from "@/utils/path";
 
 export default function News() {
   return (
@@ -17,7 +18,7 @@ export default function News() {
           <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-md transition-shadow">
             <div className="relative aspect-[3/4] w-full mb-4 max-w-xs mx-auto">
               <Image
-                src="/images/news/소식1.png"
+                src={getImagePath("/images/news/소식1.png")}
                 alt="리오"
                 fill
                 className="object-cover"

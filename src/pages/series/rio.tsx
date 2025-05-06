@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
+import { getImagePath } from "@/utils/path";
 
 // 그림 정보 컴포넌트
 function PaintInfo() {
@@ -76,7 +77,7 @@ export default function Rio() {
           <div className="w-full md:w-1/3 lg:w-1/4 flex justify-center">
             <div className="relative w-full h-[300px] md:w-56 md:h-80">
               <Image
-                src="/images/series/갤러리1.jpeg"
+                src={getImagePath("/images/series/갤러리1.jpeg")}
                 alt="리오"
                 fill
                 className="object-contain"

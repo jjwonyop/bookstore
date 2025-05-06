@@ -2,8 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../../components/layout/Layout";
 import Head from "next/head";
+import { useImagePath } from "@/utils/path";
 
 export default function NewBooks() {
+  const getImagePath = useImagePath();
     return (
       <Layout activeMenu="news">
         <Head>
@@ -14,7 +16,7 @@ export default function NewBooks() {
           <div className="w-full">
             <div className="relative w-full h-[80vh]">
               <Image
-                src="/images/news/소식1.png"
+                src={getImagePath("/images/news/소식1.png")}
                 alt="아이와 글 신간소식"
                 fill
                 className="object-contain"

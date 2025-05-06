@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { useImagePath } from "../../../../utils/path";
 import Image from "next/image";
 import Layout from "../../components/layout/Layout";
 import Head from "next/head";
 
 export default function Series() {
+  const getImagePath = useImagePath();
   return (
     
     <Layout activeMenu="series">
@@ -18,7 +20,7 @@ export default function Series() {
           <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-md transition-shadow">
             <div className="relative aspect-[3/4] w-full mb-4 max-w-xs mx-auto">
               <Image
-                src="/images/series/갤러리1.jpeg"
+                src={getImagePath("/images/series/갤러리1.jpeg")}$1
                 alt="리오"
                 fill
                 className="object-cover"

@@ -4,6 +4,7 @@ import Layout from "../components/layout/Layout";
 import Head from "next/head";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { useImagePath } from "../utils/path";
 
 // Swiper 스타일 가져오기
 import 'swiper/css';
@@ -14,6 +15,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const getImagePath = useImagePath();
 
   // 화면 크기 확인 함수
   const checkMobile = () => {
@@ -63,7 +65,7 @@ export default function Home() {
                       {isMobile ? (
                         <div className="relative w-full h-auto overflow-hidden m-0 p-0">
                           <Image
-                            src="/images/main/mobile/모바일-대문.png"
+                            src={getImagePath("/images/main/mobile/모바일-대문.png")}
                             alt="출판사 아이와글 모바일 배너"
                             width={390}
                             height={800}
@@ -75,7 +77,7 @@ export default function Home() {
                         <div className="relative w-full flex justify-center items-center p-0 m-0">
                           <div className="relative w-full h-auto bg-transparent p-0 m-0">
                             <Image
-                              src="/images/main/pc/PC-대문.png"
+                              src={getImagePath("/images/main/pc/PC-대문.png")}
                               alt="출판사 아이와글 데스크탑 배너"
                               width={1920}
                               height={1080}
@@ -97,7 +99,7 @@ export default function Home() {
                       {isMobile ? (
                         <div className="relative w-full h-auto overflow-hidden m-0 p-0">
                           <Image
-                            src="/images/main/mobile/대문2-모바일.png"
+                            src={getImagePath("/images/main/mobile/대문2-모바일.png")}
                             alt="출판사 아이와글 모바일 배너 2"
                             width={390}
                             height={800}
@@ -108,7 +110,7 @@ export default function Home() {
                         <div className="relative w-full flex justify-center items-center p-0 m-0">
                           <div className="relative w-full h-auto bg-transparent p-0 m-0">
                             <Image
-                              src="/images/main/pc/대문2-PC.png"
+                              src={getImagePath("/images/main/pc/대문2-PC.png")}
                               alt="출판사 아이와글 데스크탑 배너 2"
                               width={1920}
                               height={1080}
@@ -140,7 +142,7 @@ export default function Home() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-20 h-20 flex-shrink-0">
                           <Image
-                            src="/images/books/책이미지.png"
+                            src={getImagePath("/images/books/책이미지.png")}
                             alt="리오와 스피치 마법학교"
                             fill
                             className="object-cover rounded"
