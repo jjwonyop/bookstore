@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 
-// 배포 시 basePath 접두사 (환경변수로도 설정 가능)
-const BASEPATH = '/bookstore';
+// 배포 시 basePath 접두사 (커스텀 도메인 사용 시 비활성화)
+// const BASEPATH = '/bookstore';
+const BASEPATH = '';
 
 // basePath를 고려한 이미지 경로를 생성하는 함수
 export const getImagePath = (path: string): string => {
