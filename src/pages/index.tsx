@@ -33,9 +33,22 @@ export default function Home() {
   return (
     <Layout fullWidth={true}>
       <Head>
-        <title>출판사 아이와글</title>
-        <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
+        <title>출판사 아이와글 | 어린이 스피치 교육 전문 출판사</title>
+        <meta name="description" content="어린이 스피치 교육 전문 출판사 아이와글 공식 웹사이트입니다. 리오와 스피치 마법학교 등 다양한 어린이 교육 도서를 제공합니다." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="아이와글, 출판사, 어린이 도서, 스피치 교육, 리오와 스피치 마법학교" />
+        <meta name="author" content="아이와글" />
+        <meta property="og:title" content="출판사 아이와글 | 어린이 스피치 교육 전문 출판사" />
+        <meta property="og:description" content="어린이 스피치 교육 전문 출판사 아이와글 공식 웹사이트입니다. 리오와 스피치 마법학교 등 다양한 어린이 교육 도서를 제공합니다." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://iwagle.com" />
+        <meta property="og:image" content="https://iwagle.com/images/main/pc/PC-대문.webp" />
+        <meta property="og:site_name" content="출판사 아이와글" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="출판사 아이와글 | 어린이 스피치 교육 전문 출판사" />
+        <meta name="twitter:description" content="어린이 스피치 교육 전문 출판사 아이와글 공식 웹사이트입니다." />
+        <meta name="twitter:image" content="https://iwagle.com/images/main/pc/PC-대문.webp" />
+        <link rel="canonical" href="https://iwagle.com" />
       </Head>
 
       <div className="w-full" style={{ color: 'black' }}>
