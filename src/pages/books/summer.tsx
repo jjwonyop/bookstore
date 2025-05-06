@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { useState } from "react";
-import { getImagePath } from "@/utils/path";
+import { getImagePath, useImagePath } from "@/utils/path";
 
 // 탭 컴포넌트
 interface TabProps {
@@ -74,25 +74,27 @@ function BookInfo() {
 
 // 책 소개 내용 컴포넌트
 function BookIntroduction() {
+  const getImagePath = useImagePath();
+  
   const bookImages = [
     {
-      src: "/images/books/작품소개1.png",
+      src: getImagePath("/images/books/작품소개1.png"),
       alt: "리오와 스피치 마법학교 - 내용 이미지 1"
     },
     {
-      src: "/images/books/작품소개2.png",
+      src: getImagePath("/images/books/작품소개2.png"),
       alt: "리오와 스피치 마법학교 - 내용 이미지 2"
     },
     {
-      src: "/images/books/작품소개3.png",
+      src: getImagePath("/images/books/작품소개3.png"),
       alt: "리오와 스피치 마법학교 - 내용 이미지 3"
     },
     {
-      src: "/images/books/작품소개4.png",
+      src: getImagePath("/images/books/작품소개4.png"),
       alt: "리오와 스피치 마법학교 - 내용 이미지 4"
     },
     {
-      src: "/images/books/작품소개5.png",
+      src: getImagePath("/images/books/작품소개5.png"),
       alt: "리오와 스피치 마법학교 - 내용 이미지 5"
     }
   ];
