@@ -5,18 +5,18 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
-        <link rel="icon" href="/cropped-favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/cropped-favicon.png" />
-        <link rel="shortcut icon" href="/cropped-favicon.png" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <meta name="theme-color" content="#ffffff" />
-        
+
         {/* 기본 OG 태그 설정 */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="출판사 아이와글" />
         <meta property="og:title" content="출판사 아이와글" />
         <meta property="og:description" content="출판사 아이와글 공식 웹사이트입니다. 리오와 스피치 마법학교를 만나보세요." />
         <meta property="og:image" content={getStaticImagePath("/images/로고.png")} />
-        
+
         {/* 트위터 카드 */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="출판사 아이와글" />
