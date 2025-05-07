@@ -15,6 +15,7 @@ export default function Document() {
         <meta name="google" content="notranslate" />
         <meta name="robots" content="index,follow" />
         <meta name="googlebot" content="index,follow" />
+        <meta name="generator" content="Next.js" />
         <meta name="theme-color" content="#ffffff" />
 
         {/* 기본 OG 태그 설정 */}
