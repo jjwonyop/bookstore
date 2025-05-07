@@ -7,6 +7,12 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 
+# 워드프레스 관련 경로 크롤링 금지
+Disallow: /wp-*
+Disallow: */wp-*
+Disallow: /wordpress/
+Disallow: */wordpress/*
+
 # 이미지 크롤링 허용
 Allow: /*.jpg$
 Allow: /*.jpeg$

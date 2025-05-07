@@ -11,6 +11,10 @@ export default function Document() {
         <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+        {/* 구글 검색용 아이콘 명시 */}
+        <meta name="google" content="notranslate" />
+        <meta name="robots" content="index,follow" />
+        <meta name="googlebot" content="index,follow" />
         <meta name="theme-color" content="#ffffff" />
 
         {/* 기본 OG 태그 설정 */}
