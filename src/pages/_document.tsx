@@ -5,9 +5,12 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
+        {/* 파비콘 설정 */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
         <meta name="theme-color" content="#ffffff" />
 
         {/* 기본 OG 태그 설정 */}
