@@ -34,12 +34,12 @@ export default function Home() {
     <Layout fullWidth={true}>
       <Head>
         <title>아이와글 | 어린이 스피치 교육 전문 출판사</title>
-        <meta name="description" content="아이와글은 어린이 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교 시리즈로 자신감 있는 말하기와 글쓰기를 가르칩니다. 아동도서, 스피치 교육, 자신감 향상 프로그램을 제공합니다." />
+        <meta name="description" content="아이와글은 어린이 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교 시리즈로 자신감 있는 말하기와 글쓰기를 가르칩니다. 초등학생 스피치, 어린이 자신감 향상, 말하기 교육 프로그램." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="아이와글, 출판사, 어린이 스피치 교육, 리오와 스피치 마법학교, 아동도서, 자신감 향상, 말하기 교육, 글쓰기 교육, 스피치 전문, 어린이 교육, 초등 스피치, 아동 스피치, 스피치 교재, 스피치 도서, 스피치 교육 프로그램" />
+        <meta name="keywords" content="리오와 스피치 마법학교, 어린이 스피치, 초등학생 스피치, 자신감 향상, 말하기 교육, 스피치 교육, 스피치 책, 아이와글, 출판사, 동화책, 어린이 도서, 스피치 훈련, 발표력 향상, 어린이 발표, 키즈 스피치, 스피치 수업, 아동 스피치 교재, 스피치 전문" />
         <meta name="author" content="아이와글" />
-        <meta property="og:title" content="출판사 아이와글 | 어린이 스피치 교육 전문 출판사" />
-        <meta property="og:description" content="어린이 스피치 교육 전문 출판사 아이와글 공식 웹사이트입니다. 리오와 스피치 마법학교 등 다양한 어린이 교육 도서를 제공합니다." />
+        <meta property="og:title" content="아이와글 | 어린이 스피치 교육 전문 출판사" />
+        <meta property="og:description" content="아이와글은 어린이 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교 시리즈로 자신감 있는 말하기와 글쓰기를 가르칩니다." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://iwagle.com" />
         <meta property="og:image" content="https://iwagle.com/images/main/pc/PC-대문.webp" />
