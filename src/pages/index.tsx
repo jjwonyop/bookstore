@@ -5,21 +5,28 @@ import Head from "next/head";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useImagePath } from "../utils/path";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from "react";
 
 // Swiper 스타일 가져오기
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const getImagePath = useImagePath();
+  const router = useRouter();
 
   // 화면 크기 확인 함수
   const checkMobile = () => {
     setIsMobile(window.innerWidth < 768);
+  };
+
+  // 배너 클릭 핸들러
+  const handleBannerClick = (url: string) => {
+    router.push(url);
   };
 
   // 클라이언트 사이드에서만 Swiper를 마운트하도록 처리
@@ -77,24 +84,30 @@ export default function Home() {
                     <SwiperSlide className="flex justify-center items-center p-0">
                       <div className="relative w-full">
                         {isMobile ? (
-                          <div className="relative w-full h-auto overflow-hidden">
+                          <div 
+                            className="relative w-full h-auto overflow-hidden cursor-pointer" 
+                            onClick={() => handleBannerClick('/books/summer')}
+                          >
                             <Image
                               src={getImagePath("/images/main/mobile/모바일-대문.png")}
                               alt="출판사 아이와글 모바일 배너"
                               width={390}
                               height={800}
-                              className="w-full h-auto"
+                              className="w-full h-auto cursor-pointer"
                               priority
                             />
                           </div>
                         ) : (
-                          <div className="relative">
+                          <div 
+                            className="relative cursor-pointer" 
+                            onClick={() => handleBannerClick('/books/summer')}
+                          >
                             <Image
                               src={getImagePath("/images/main/pc/PC-대문.png")}
                               alt="출판사 아이와글 데스크탑 배너"
                               width={1920}
                               height={1080}
-                              className="w-full h-auto rounded-lg shadow-md"
+                              className="w-full h-auto rounded-lg shadow-md cursor-pointer"
                               style={{
                                 maxHeight: '70vh',
                                 objectFit: 'cover'
@@ -109,23 +122,29 @@ export default function Home() {
                     <SwiperSlide className="flex justify-center items-center p-0">
                       <div className="relative w-full">
                         {isMobile ? (
-                          <div className="relative w-full h-auto overflow-hidden">
+                          <div 
+                            className="relative w-full h-auto overflow-hidden cursor-pointer" 
+                            onClick={() => handleBannerClick('/books/summer')}
+                          >
                             <Image
                               src={getImagePath("/images/main/mobile/대문2-모바일.png")}
                               alt="출판사 아이와글 모바일 배너 2"
                               width={390}
                               height={800}
-                              className="w-full h-auto"
+                              className="w-full h-auto cursor-pointer"
                             />
                           </div>
                         ) : (
-                          <div className="relative">
+                          <div 
+                            className="relative cursor-pointer" 
+                            onClick={() => handleBannerClick('/books/summer')}
+                          >
                             <Image
                               src={getImagePath("/images/main/pc/대문2-PC.png")}
                               alt="출판사 아이와글 데스크탑 배너 2"
                               width={1920}
                               height={1080}
-                              className="w-full h-auto rounded-lg shadow-md"
+                              className="w-full h-auto rounded-lg shadow-md cursor-pointer"
                               style={{
                                 maxHeight: '70vh',
                                 objectFit: 'cover'
@@ -138,6 +157,36 @@ export default function Home() {
                   </Swiper>
                 </div>
               )}
+            </section>
+
+            <section className="mb-12 container mx-auto px-4 py-6 rounded-lg">
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="text-xl md:text-2xl font-bold">책장</h2>
+                <Link href="/books" className="text-sm underline">더보기</Link>
+              </div>
+              <div className="border-t border-gray-300 pt-3">
+                <ul className="space-y-2">
+                  <li className="pb-2 border-b border-gray-100">
+                    <Link href="/books" className="block p-2 rounded-lg">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-20 h-20 flex-shrink-0">
+                          <Image
+                            src={getImagePath("/images/books/책이미지.png")}
+                            alt="리오와 스피치 마법학교"
+                            fill
+                            className="object-cover rounded"
+                            sizes="80px"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-1 text-sm md:text-base">[책소개] 리오와 스피치 마법학교</h3>
+                          <p className="text-gray-600 text-xs md:text-sm">말이 서툰 아이도 괜찮아요! 리오와 함께 떠나는 스피치 마법 여행으로 자신 있게 말하는 힘을 길러보세요.</p>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </section>
 
             {/* 소식 섹션 */}
