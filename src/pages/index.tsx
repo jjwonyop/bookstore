@@ -159,10 +159,9 @@ export default function Home() {
               )}
             </section>
 
-            <section className="mb-12 container mx-auto px-4 py-6 rounded-lg">
-              <div className="flex justify-between items-center mb-3">
+            <section className="mb-6 container mx-auto px-4 py-3 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
                 <h2 className="text-xl md:text-2xl font-bold">책장</h2>
-                <Link href="/books" className="text-sm underline">더보기</Link>
               </div>
               <div className="border-t border-gray-300 pt-3">
                 <ul className="space-y-2">
@@ -180,7 +179,36 @@ export default function Home() {
                         </div>
                         <div className="flex-1">
                           <h3 className="font-medium mb-1 text-sm md:text-base">[책소개] 리오와 스피치 마법학교</h3>
-                          <p className="text-gray-600 text-xs md:text-sm">말이 서툰 아이도 괜찮아요! 리오와 함께 떠나는 스피치 마법 여행으로 자신 있게 말하는 힘을 길러보세요.</p>
+                          <p className="text-gray-600 text-xs md:text-sm">자신감과 웃음이 가득한 스피치 모험! 리오와 함께 떠나는 스피치 마법 여행으로 자신 있게 말하는 힘을 길러보세요.</p>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <section className="mb-6 container mx-auto px-4 py-3 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-xl md:text-2xl font-bold">아트</h2>
+              </div>
+              <div className="border-t border-gray-300 pt-3">
+                <ul className="space-y-2">
+                  <li className="pb-2 border-b border-gray-100">
+                    <Link href="/series/rio" className="block p-2 rounded-lg">
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-20 h-20 flex-shrink-0">
+                          <Image
+                            src={getImagePath("/images/series/갤러리1.jpeg")}
+                            alt="리오"
+                            fill
+                            className="object-cover rounded"
+                            sizes="80px"
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-1 text-sm md:text-base">[작품소개] 리오</h3>
+                          <p className="text-gray-600 text-xs md:text-sm">리오, 작은 기적을 축하하는 순간의 기록. 따뜻한 시선과 부드러운 터치로 표현된 리오는 아이들의 매일을 축하하고 응원합니다.</p>
                         </div>
                       </div>
                     </Link>
@@ -190,10 +218,9 @@ export default function Home() {
             </section>
 
             {/* 소식 섹션 */}
-            <section className="mb-12 container mx-auto px-4">
-              <div className="flex justify-between items-center mb-3">
+            <section className="mb-6 container mx-auto px-4 py-3">
+              <div className="flex justify-between items-center mb-2">
                 <h2 className="text-xl md:text-2xl font-bold">소식</h2>
-                <Link href="/news" className="text-sm underline">더보기</Link>
               </div>
               <div className="border-t border-gray-300 pt-3">
                 <ul className="space-y-2">
