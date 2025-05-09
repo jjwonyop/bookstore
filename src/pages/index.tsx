@@ -94,7 +94,6 @@ export default function Home() {
                               width={390}
                               height={800}
                               className="w-full h-auto cursor-pointer"
-                              priority
                             />
                           </div>
                         ) : (
@@ -112,7 +111,6 @@ export default function Home() {
                                 maxHeight: '70vh',
                                 objectFit: 'cover'
                               }}
-                              priority
                             />
                           </div>
                         )}
@@ -170,7 +168,7 @@ export default function Home() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-20 h-20 flex-shrink-0">
                           <Image
-                            src={getImagePath("/images/books/책이미지.png")}
+                            src={getImagePath("/images/books/책이미지.webp")}
                             alt="리오와 스피치 마법학교"
                             fill
                             className="object-cover rounded"
@@ -199,7 +197,7 @@ export default function Home() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-20 h-20 flex-shrink-0">
                           <Image
-                            src={getImagePath("/images/series/갤러리1.jpeg")}
+                            src={getImagePath("/images/series/갤러리1.webp")}
                             alt="리오"
                             fill
                             className="object-cover rounded"
@@ -229,7 +227,7 @@ export default function Home() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-20 h-20 flex-shrink-0">
                           <Image
-                            src={getImagePath("/images/books/책이미지.png")}
+                            src={getImagePath("/images/books/책이미지.webp")}
                             alt="리오와 스피치 마법학교"
                             fill
                             className="object-cover rounded"
