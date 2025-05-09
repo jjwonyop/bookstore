@@ -188,7 +188,6 @@ export const createArtworkSchema = (artwork: ArtworkData): SchemaType => {
     ...(artwork.keywords && { "keywords": artwork.keywords.join(", ") }),
     "offers": {
       "@type": "Offer",
-      "availability": "https://schema.org/InStock",
       "priceCurrency": "KRW",
       "seller": {
         "@id": "https://iwagle.com/#organization"
