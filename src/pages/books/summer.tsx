@@ -4,6 +4,7 @@ import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { useState } from "react";
 import { getImagePath, useImagePath } from "@/utils/path";
+import SchemaOrg from "@/components/SchemaOrg";
 
 // 탭 컴포넌트
 interface TabProps {
@@ -130,6 +131,26 @@ export default function Summer() {
       <Head>
         <title>리오와 스피치 마법학교 - 출판사 아이와글</title>
         <meta name="description" content="리오와 스피치 마법학교 - 출판사 아이와글" />
+        <meta name="keywords" content={`리오와 스피치 마법학교`} />
+        <meta property="og:title" content={`리오와 스피치 마법학교 | 아이와글 출판사`} />
+        <meta property="og:description" content={`어린이 스피치 동화, 스피치, 키즈스피치 도서`} />
+        <meta property="og:image" content={getImagePath("/images/books/책이미지.png")} />
+        <meta property="og:url" content={`https://iwagle.com/books/summer`} />
+        <meta property="og:type" content="book" />
+        <link rel="canonical" href={`https://iwagle.com/books/summer`} />
+        {/* Schema.org 구조화 데이터 */}
+        <SchemaOrg 
+          type="book" 
+          data={{
+            url: "https://iwagle.com/books/summer",
+            name: "리오와 스피치 마법학교",
+            image: `https://iwagle.com${getImagePath("/images/books/책이미지.png")}`,
+            description: "어린이 스피치 동화, 스피치, 키즈스피치 도서",
+            isbn: "9791199145504",
+            author: "김서혜",
+            datePublished: "2025.03.12"
+          }}
+        />
       </Head>
 
       <div className="container mx-auto px-4 md:py-16 py-4">

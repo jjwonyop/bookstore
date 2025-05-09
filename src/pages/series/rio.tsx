@@ -3,6 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { getImagePath } from "@/utils/path";
+import SchemaOrg from "@/components/SchemaOrg";
 
 // 그림 정보 컴포넌트
 function PaintInfo() {
@@ -68,6 +69,34 @@ export default function Rio() {
       <Head>
         <title>출판사 아이와글</title>
         <meta name="description" content="출판사 아이와글 공식 웹사이트입니다." />
+        <title>리오 | 아이와글 아트 갤러리</title>
+        <meta name="description" content="리오, 작은 기적을 축하하는 순간의 기록..." />
+        <meta name="keywords" content={`유화, 귀여운 그림, 리오, 기적, 키즈`} />
+        <meta property="og:title" content={`리오 | 아이와글 아트 갤러리`} />
+        <meta property="og:description" content={`리오, 작은 기적을 축하하는 순간의 기록.`} />
+        <meta property="og:image" content={getImagePath("/images/series/갤러리1.jpeg")} />
+        <meta property="og:url" content={`https://iwagle.com/series/rio`} />
+        <meta property="og:type" content="article" />
+        <link rel="canonical" href={`https://iwagle.com/series/rio`} />
+        {/* Schema.org 구조화 데이터 */}
+        <SchemaOrg 
+          type="artwork" 
+          data={{
+            url: "https://iwagle.com/series/rio",
+            name: "리오",
+            image: `https://iwagle.com${getImagePath("/images/series/갤러리1.jpeg")}`,
+            description: "리오, 작은 기적을 축하하는 순간의 기록...",
+            artist: "윤봄",
+            artworkMedium: "유화",
+            artworkSurface: "유화",
+            dateCreated: "2025-04-05",
+            width: "25cm",
+            height: "25cm",
+            artEdition: "제한판",
+            genre: "유화, 귀여운 그림, 어린이, 이쁜그림",
+            keywords: ["리오", "유화", "어린이", "강아지그림"]
+          }}
+        />
       </Head>
 
       <div className="container mx-auto px-4 md:py-16 py-4">

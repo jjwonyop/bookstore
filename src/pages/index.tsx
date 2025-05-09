@@ -7,6 +7,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { useImagePath } from "../utils/path";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
+import SchemaOrg from "../components/SchemaOrg";
 
 // Swiper 스타일 가져오기
 import 'swiper/css';
@@ -41,7 +42,7 @@ export default function Home() {
     <Layout fullWidth={true}>
       <Head>
         <title>아이와글 | 어린이 스피치 교육 전문 출판사</title>
-        <meta name="description" content="아이와글은 어린이 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교 시리즈로 자신감 있는 말하기와 글쓰기를 가르칩니다. 초등학생 스피치, 어린이 자신감 향상, 말하기 교육 프로그램." />
+        <meta name="description" content="아이와글은 키즈 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교로 자신감 있는 말하기를 가르칩니다. 어린이 스피치, 자신감 향상, 스피치 교육." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="keywords" content="리오와 스피치 마법학교, 어린이 스피치, 초등학생 스피치, 자신감 향상, 말하기 교육, 스피치 교육, 스피치 책, 아이와글, 출판사, 동화책, 어린이 도서, 스피치 훈련, 발표력 향상, 어린이 발표, 키즈 스피치, 스피치 수업, 아동 스피치 교재, 스피치 전문" />
         <meta name="author" content="아이와글" />
@@ -56,6 +57,18 @@ export default function Home() {
         <meta name="twitter:description" content="어린이 스피치 교육 전문 출판사 아이와글 공식 웹사이트입니다." />
         <meta name="twitter:image" content="https://iwagle.com/images/main/pc/PC-대문.webp" />
         <link rel="canonical" href="https://iwagle.com" />
+        
+        {/* Schema.org 구조화 데이터 */}
+        <SchemaOrg 
+          type="page" 
+          data={{
+            url: "https://iwagle.com",
+            title: "아이와글 | 어린이 스피치 교육 전문 출판사",
+            description: "아이와글은 어린이 스피치 교육 전문 출판사입니다. 리오와 스피치 마법학교로 자신감 있는 말하기를 가르칩니다.",
+            image: "https://iwagle.com/images/main/pc/PC-대문.webp",
+            dateModified: new Date().toISOString().split('T')[0]
+          }}
+        />
       </Head>
 
       <div className="w-full" style={{ color: 'black' }}>
