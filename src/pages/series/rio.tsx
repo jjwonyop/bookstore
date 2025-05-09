@@ -78,6 +78,7 @@ export default function Rio() {
         <meta property="og:url" content={`https://iwagle.com/series/rio`} />
         <meta property="og:type" content="article" />
         <link rel="canonical" href={`https://iwagle.com/series/rio`} />
+        
         {/* Schema.org 구조화 데이터 */}
         <SchemaOrg 
           type="artwork" 
