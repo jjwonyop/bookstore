@@ -40,7 +40,7 @@ function BookTabs({ active, onChange }: TabProps) {
 function BookstoreLinks() {
   const stores = [
     // { name: "교보문고", url: "https://www.kyobobook.co.kr" },
-    { name: "네이버 - 스마트스토어", url: "https://smartstore.naver.com/iwagle/products/11827806983" },
+    { name: "아이와글", url: "https://smartstore.naver.com/iwagle/products/11827806983" },
   ];
 
   return (
