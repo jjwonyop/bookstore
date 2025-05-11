@@ -39,10 +39,8 @@ function BookTabs({ active, onChange }: TabProps) {
 // 구매처 링크 컴포넌트
 function BookstoreLinks() {
   const stores = [
-    { name: "YES24", url: "https://www.yes24.com" },
-    { name: "알라딘", url: "https://www.aladin.co.kr" },
-    { name: "교보문고", url: "https://www.kyobobook.co.kr" },
-    { name: "영풍문고", url: "https://www.ypbooks.co.kr" },
+    // { name: "교보문고", url: "https://www.kyobobook.co.kr" },
+    { name: "네이버 - 스마트스토어", url: "https://smartstore.naver.com/iwagle/products/11827806983" },
   ];
 
   return (
