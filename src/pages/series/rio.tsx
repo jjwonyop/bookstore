@@ -63,7 +63,7 @@ function PaintIntroduction() {
 }
 
 export default function Rio() {
-  const store = { name: "네이버 스마트 스토어", url: "https://www.naver.com" };
+  const store = { name: "아이와글", url: "https://smartstore.naver.com/iwagle/products/11828073690" };
   return (
     <Layout activeMenu="series">
       <Head>
