@@ -39,7 +39,7 @@ function BookTabs({ active, onChange }: TabProps) {
 // 구매처 링크 컴포넌트
 function BookstoreLinks() {
   const stores = [
-    // { name: "교보문고", url: "https://www.kyobobook.co.kr" },
+    { name: "yes24", url: "https://www.yes24.com/product/goods/146600425" },
     { name: "아이와글", url: "https://smartstore.naver.com/iwagle/products/11827806983" },
   ];
 
