@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ReactNode, useState } from "react";
 import { Noto_Sans_KR } from "next/font/google";
 import { useImagePath } from "../../utils/path";
+import { useQRUser } from "../../utils/useQRUser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ interface LayoutProps {
 export default function Layout({ children, activeMenu, activeSubmenu, fullWidth = false }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const getImagePath = useImagePath();
+  const { isQRUser, loading } = useQRUser();
 
   return (
     <div className={`${geistSans.className} ${geistMono.className} min-h-screen bg-white text-black`} style={{ color: 'black' }}>
@@ -123,36 +125,19 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
             >
               아이와글 아트
             </Link>
-            <div>
-              <Link
-                href="/contents"
-                className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "contents" ? "font-bold" : ""}`}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{ color: 'black' }}
-              >
-                아이와글 교육
-              </Link>
-              {activeMenu === "contents" && (
-                <div className="pl-4 border-l border-gray-300 my-2">
-                  <Link
-                    href="/contents/news"
-                    className={`py-1 block text-black ${activeSubmenu === "news" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ color: 'black' }}
-                  >
-                    소식
-                  </Link>
-                  <Link
-                    href="/contents/youtube"
-                    className={`py-1 block text-black ${activeSubmenu === "youtube" ? "font-bold" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                    style={{ color: 'black' }}
-                  >
-                    유튜브
-                  </Link>
-                </div>
-              )}
-            </div>
+            {/* QR 유저에게만 컨텐츠 메뉴 표시 */}
+            {isQRUser && !loading && (
+              <div>
+                <Link
+                  href="/contents"
+                  className={`py-2 block border-b border-gray-300 text-black ${activeMenu === "contents" ? "font-bold" : ""}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ color: 'black' }}
+                >
+                  아이와글 교육
+                </Link>
+              </div>
+            )}
             <div>
               <Link
                 href="/news"
@@ -223,37 +208,18 @@ export default function Layout({ children, activeMenu, activeSubmenu, fullWidth 
                 아이와글 아트
               </Link>
             </li>
-            <li className="relative group">
-              <Link
-                href="/contents"
-                className={activeMenu === "contents" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                style={{ color: 'black' }}
-              >
-                아이와글 교육
-              </Link>
-              <div className="absolute hidden group-hover:block bg-white border border-gray-300 p-4 min-w-48 z-10">
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/contents/naver"
-                      className={activeSubmenu === "news" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{ color: 'black' }}
-                    >
-                      네이버
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contents/youtube"
-                      className={activeSubmenu === "youtube" ? "font-bold text-black" : "text-black hover:text-gray-600"}
-                      style={{ color: 'black' }}
-                    >
-                      유튜브
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
+            {/* QR 유저에게만 컨텐츠 메뉴 표시 */}
+            {isQRUser && !loading && (
+              <li className="relative group">
+                <Link
+                  href="/contents"
+                  className={activeMenu === "contents" ? "font-bold text-black" : "text-black hover:text-gray-600"}
+                  style={{ color: 'black' }}
+                >
+                  아이와글 교육
+                </Link>
+              </li>
+            )}
             <li className="relative group">
               <Link
                 href="/news"

@@ -54,10 +54,7 @@ const Header = () => {
     {
       name: '아이와글 교육',
       href: '/contents',
-      subMenus: [
-        { name: '소식', href: '/contents/naver' },
-        { name: '유튜브', href: '/contents/youtube' },
-      ],
+      subMenus: [],
     },
     {
       name: '아이와글 소식',

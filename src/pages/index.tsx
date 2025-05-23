@@ -8,6 +8,7 @@ import { useImagePath } from "../utils/path";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import SchemaOrg from "../components/SchemaOrg";
+import { useQRUser } from "../utils/useQRUser";
 
 // Swiper 스타일 가져오기
 import 'swiper/css';
@@ -19,6 +20,7 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const getImagePath = useImagePath();
   const router = useRouter();
+  const { isQRUser } = useQRUser();
 
   // 화면 크기 확인 함수
   const checkMobile = () => {
@@ -257,6 +259,28 @@ export default function Home() {
                 </ul>
               </div>
             </section>
+
+            {/* QR 특별 메뉴 섹션 */}
+            {isQRUser && (
+              <section className="mb-6 container mx-auto px-4 py-3">
+                <div className="flex justify-between items-center mb-2">
+                  <h2 className="text-xl md:text-2xl font-bold">🎯 QR 특별 메뉴</h2>
+                </div>
+                <div className="border-t border-gray-300 pt-3">
+                  <div className="grid md:grid-cols-1 gap-4">
+                    <Link href="/qr-landing" className="block hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 p-4 rounded-lg border border-blue-200 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="text-4xl">📱</div>
+                        <div className="flex-1">
+                          <h3 className="font-medium mb-1 text-sm md:text-base text-blue-800">QR 랜딩페이지</h3>
+                          <p className="text-gray-600 text-xs md:text-sm">QR 코드로 접속한 고객을 위한 특별한 혜택과 메뉴를 확인하세요.</p>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+            )}
           </div>
         </div>
       </div>
