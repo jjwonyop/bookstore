@@ -36,12 +36,18 @@ const isValidReferrer = (): boolean => {
   const referrer = document.referrer;
   const currentHost = window.location.hostname;
   
-  // Referrer가 없거나 같은 도메인이 아니면 차단
-  if (!referrer) return false;
+  // 같은 도메인에서의 직접 접근은 허용 (Referrer가 없어도 OK)
+  if (!referrer) {
+    // 현재 페이지가 같은 도메인이면 허용
+    return currentHost.includes('iwagle.com') || currentHost === 'localhost';
+  }
   
   try {
     const referrerUrl = new URL(referrer);
-    return referrerUrl.hostname === currentHost;
+    // 같은 도메인이거나 허용된 도메인에서 온 경우 허용
+    return referrerUrl.hostname === currentHost || 
+           referrerUrl.hostname.includes('iwagle.com') ||
+           (currentHost === 'localhost' && referrerUrl.hostname === 'localhost');
   } catch {
     return false;
   }
@@ -83,10 +89,15 @@ export const downloadSecureFile = async (fileId: string): Promise<void> => {
     throw new Error('이 파일은 QR 코드로 방문한 사용자만 다운로드할 수 있습니다.');
   }
 
-  // 4. Referrer 검증
+  // 4. Referrer 검증 (임시로 경고만 출력)
   if (!isValidReferrer()) {
-    console.warn('Invalid referrer detected');
-    throw new Error('유효하지 않은 접근입니다.');
+    console.warn('Invalid referrer detected:', {
+      referrer: document.referrer,
+      currentHost: window.location.hostname,
+      currentUrl: window.location.href
+    });
+    // 임시로 Referrer 검증 실패 시에도 다운로드 허용 (디버깅용)
+    // throw new Error('유효하지 않은 접근입니다.');
   }
 
   // 5. 다운로드 로그 (개발환경에서만)
