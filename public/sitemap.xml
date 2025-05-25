@@ -42,11 +42,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://iwagle.com/contents</loc>
-    <lastmod>2024-03-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <!-- 필요에 따라 더 많은 URL 추가 -->
 </urlset> 
