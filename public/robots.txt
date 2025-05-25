@@ -6,6 +6,14 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
+Disallow: /*admin*
+Disallow: /*converter*
+Disallow: /qr-generator
+Disallow: /*qr-generator*
+
+# 다운로드 파일 크롤링 금지
+Disallow: /downloads/
+Disallow: /*.pdf$
 
 # 워드프레스 관련 경로 크롤링 금지
 Disallow: /wp-*

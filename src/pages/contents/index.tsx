@@ -4,11 +4,22 @@ import { useQRUser } from "../../utils/useQRUser";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import SecureDownloadButton from "../../components/SecureDownloadButton";
+import { secureDownloadFiles } from "../../data/downloadFiles";
 
 export default function Contents() {
   const { isQRUser, loading, qrSource } = useQRUser();
   const router = useRouter();
   const [showMessage, setShowMessage] = useState(false);
+
+  // QR 유저 상태를 localStorage에 저장 (보안 검증용)
+  useEffect(() => {
+    if (!loading && isQRUser) {
+      localStorage.setItem('qr_user_verified', 'true');
+    } else if (!loading && !isQRUser) {
+      localStorage.removeItem('qr_user_verified');
+    }
+  }, [isQRUser, loading]);
 
   // QR 유저가 아니면 안내 메시지 보여주고 메인 페이지로 리다이렉트
   useEffect(() => {
@@ -63,20 +74,19 @@ export default function Contents() {
       <Head>
         <title>컨텐츠 | 아이와글</title>
         <meta name="description" content="아이와글의 다양한 컨텐츠를 만나보세요." />
+        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+        <meta property="og:robots" content="noindex, nofollow" />
       </Head>
 
       <div className="w-full" style={{ color: 'black' }}>
-        {/* 메인 레이아웃 컨테이너 */}
         <div className="w-full max-w-full mx-auto">
-          {/* 메인 콘텐츠 영역 */}
           <div className="w-full px-0 py-0 overflow-hidden">
-            
-            {/* QR 유저 환영 배너 (QR 유저에게만 표시) */}
             {isQRUser && !loading && (
               <section className="w-full mb-8 p-0 overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600">
                 <div className="container mx-auto px-4 py-8 text-center text-white">
                   <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                    특별한 컨텐츠를 준비했습니다!
+                    특별한 교육을 준비했습니다!
                   </h2>
                   <p className="text-purple-100">
                     QR 코드로 방문해주신 고객님만을 위한 특별 혜택
@@ -87,16 +97,16 @@ export default function Contents() {
 
             {/* 메인 컨텐츠 헤더 */}
             <section className="mb-8 container mx-auto px-4 py-8 text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">📚 아이와글 컨텐츠</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">📚 아이와글 교육</h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                어린이 스피치 교육과 관련된 다양한 교육 자료와 컨텐츠를 만나보세요
+                어린이 스피치와 관련된 다양한 교육 자료를 만나보세요
               </p>
             </section>
 
             {/* 영상 컨텐츠 */}
             <section className="mb-6 container mx-auto px-4 py-3 rounded-lg">
               <div className="flex justify-between items-center mb-2">
-                <h2 className="text-xl md:text-2xl font-bold">🎬 영상 컨텐츠</h2>
+                <h2 className="text-xl md:text-2xl font-bold">🎬 영상 교육</h2>
               </div>
               <div className="border-t border-gray-300 pt-3">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -106,11 +116,6 @@ export default function Contents() {
                     </div>
                     <h3 className="font-medium mb-2">스피치 기초 강의</h3>
                     <p className="text-gray-600 text-sm mb-3">어린이를 위한 기본 스피치 기법과 자신감 향상 방법</p>
-                    {isQRUser && (
-                      <div className="mb-2">
-                        <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs">VIP 무료 시청</span>
-                      </div>
-                    )}
                     <button className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
                       시청하기
                     </button>
@@ -122,11 +127,6 @@ export default function Contents() {
                     </div>
                     <h3 className="font-medium mb-2">리오와 함께하는 스피치</h3>
                     <p className="text-gray-600 text-sm mb-3">리오 캐릭터와 함께 배우는 재미있는 스피치 학습</p>
-                    {isQRUser && (
-                      <div className="mb-2">
-                        <span className="bg-purple-500 text-white px-2 py-1 rounded text-xs">VIP 추가 에피소드</span>
-                      </div>
-                    )}
                     <button className="w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600">
                       시청하기
                     </button>
@@ -148,34 +148,27 @@ export default function Contents() {
                     </div>
                     <h3 className="font-medium mb-2 text-center">기초 활동지</h3>
                     <p className="text-gray-600 text-sm text-center mb-3">스피치 기초 연습을 위한 활동지</p>
-                    <button className="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600">
-                      다운로드
-                    </button>
+                    <SecureDownloadButton 
+                      file={secureDownloadFiles[0]} 
+                      variant="warning"
+                      isQRUser={isQRUser}
+                    />
                   </div>
                   
-                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                    <div className="text-center mb-3">
-                      <span className="text-3xl">📋</span>
-                    </div>
-                    <h3 className="font-medium mb-2 text-center">심화 워크북</h3>
-                    <p className="text-gray-600 text-sm text-center mb-3">단계별 스피치 심화 학습</p>
-                    <button className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
-                      다운로드
-                    </button>
-                  </div>
-                  
-                  {isQRUser && (
+                  {/* {isQRUser && (
                     <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                       <div className="text-center mb-3">
                         <span className="text-3xl">⭐</span>
                       </div>
                       <h3 className="font-medium mb-2 text-center">VIP 전용 자료</h3>
                       <p className="text-gray-600 text-sm text-center mb-3">QR 고객 전용 특별 학습자료</p>
-                      <button className="w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600">
-                        다운로드
-                      </button>
+                      <SecureDownloadButton 
+                        file={secureDownloadFiles[2]} 
+                        variant="primary"
+                        isQRUser={isQRUser}
+                      />
                     </div>
-                  )}
+                  )} */}
                 </div>
               </div>
             </section>

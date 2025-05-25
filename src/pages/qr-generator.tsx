@@ -1,32 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Head from 'next/head';
+import AdminGuard from '../components/AdminGuard';
+import Layout from '../components/layout/Layout';
+import { useAdminAuth } from '../utils/useAdminAuth';
 
 const QRGeneratorPage = () => {
   const [baseUrl, setBaseUrl] = useState('');
   const [qrCode, setQrCode] = useState('');
   const [customCode, setCustomCode] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-
-  // 관리자 권한 확인
-  useEffect(() => {
-    const { admin } = router.query;
-    
-    if (admin === 'true') {
-      setIsAdmin(true);
-    } else if (router.isReady) {
-      // 쿼리가 로드되었는데 admin 파라미터가 없으면 접근 거부
-      setIsAdmin(false);
-    }
-    
-    if (router.isReady) {
-      setLoading(false);
-    }
-  }, [router.query, router.isReady]);
+  const { logout, extendSession } = useAdminAuth();
 
   // 현재 URL 기준으로 기본값 설정
   useEffect(() => {
@@ -34,59 +18,6 @@ const QRGeneratorPage = () => {
       setBaseUrl(window.location.origin);
     }
   }, []);
-
-  // 로딩 중
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
-      </div>
-    );
-  }
-
-  // 관리자가 아닌 경우 접근 거부 메시지
-  if (!isAdmin) {
-    return (
-      <>
-        <Head>
-          <title>접근 제한 | 아이와글</title>
-          <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
-          <meta name="description" content="관리자 전용 페이지입니다." />
-        </Head>
-        
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-50 to-orange-50">
-          <div className="text-center max-w-md mx-auto px-4">
-            <div className="text-6xl mb-6">🚫</div>
-            <h1 className="text-3xl font-bold text-red-800 mb-4">
-              접근이 제한된 페이지입니다
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              이 페이지는 관리자만 접근할 수 있습니다.<br/>
-              메인 페이지로 이동합니다...
-            </p>
-            <div className="space-y-3">
-              <div className="animate-pulse">
-                <div className="bg-red-500 text-white px-6 py-3 rounded-lg">
-                  메인 페이지로 이동 중... (3초)
-                </div>
-              </div>
-              <Link href="/" className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                지금 이동하기
-              </Link>
-            </div>
-          </div>
-        </div>
-        
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            setTimeout(function() {
-              window.location.href = '/';
-            }, 3000);
-          `
-        }} />
-      </>
-    );
-  }
 
   const generateQRUrl = () => {
     let url = `${baseUrl}/qr-landing?qr=true`;
@@ -130,41 +61,66 @@ const QRGeneratorPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100">
-      <Head>
-        <title>QR 코드 생성기 (관리자 전용) | 아이와글</title>
-        <meta name="description" content="관리자 전용 QR 코드 생성 도구입니다." />
-        <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
-        <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
-        <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
-        <meta name="naverbot" content="noindex, nofollow, noarchive, nosnippet" />
-        <meta name="daumbot" content="noindex, nofollow, noarchive, nosnippet" />
-        {/* 추가 보안을 위한 메타 태그들 */}
-        <meta name="referrer" content="no-referrer" />
-        <meta name="format-detection" content="telephone=no" />
-      </Head>
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* 헤더 */}
-        <header className="text-center mb-12">
-          <div className="mb-4">
-            <span className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-              🔒 관리자 전용 페이지
-            </span>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            🎯 QR 코드 생성기
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            마케팅 캠페인과 이벤트를 위한 QR 코드를 생성하세요. 
-            각각의 QR 코드는 고유한 식별자를 가지며, 방문자 추적이 가능합니다.
-          </p>
-          <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-3 max-w-xl mx-auto">
-            <p className="text-yellow-800 text-sm">
-              ⚠️ 이 페이지는 관리자 전용입니다. URL을 외부에 공유하지 마세요.
-            </p>
-          </div>
-        </header>
+    <AdminGuard title="QR 코드 생성기">
+      <Layout fullWidth={true}>
+        <Head>
+          <title>QR 코드 생성기 (관리자 전용) | 아이와글</title>
+          <meta name="description" content="관리자 전용 QR 코드 생성 도구입니다." />
+          <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+          <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta name="naverbot" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta name="daumbot" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta property="og:robots" content="noindex, nofollow" />
+          <meta name="referrer" content="no-referrer" />
+          <meta httpEquiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet" />
+          <meta name="format-detection" content="telephone=no" />
+        </Head>
+        
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100">
+          <div className="container mx-auto px-4 py-8">
+            {/* 관리자 헤더 */}
+            <div className="flex justify-between items-center mb-8">
+              <h1 className="text-3xl font-bold text-gray-900">
+                🎯 QR 코드 생성기
+              </h1>
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-gray-600">관리자 모드</span>
+                <button
+                  onClick={logout}
+                  className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+                >
+                  🚪 로그아웃
+                </button>
+                <button
+                  onClick={extendSession}
+                  className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+                >
+                  ⏰ 세션 연장
+                </button>
+              </div>
+            </div>
+
+            {/* 헤더 */}
+            <header className="text-center mb-12">
+              <div className="mb-4">
+                <span className="inline-block bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  🔒 관리자 전용 페이지
+                </span>
+              </div>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                QR 코드 생성 도구
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                마케팅 캠페인과 이벤트를 위한 QR 코드를 생성하세요. 
+                각각의 QR 코드는 고유한 식별자를 가지며, 방문자 추적이 가능합니다.
+              </p>
+              <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-3 max-w-xl mx-auto">
+                <p className="text-yellow-800 text-sm">
+                  ⚠️ 이 페이지는 관리자 전용입니다. URL을 외부에 공유하지 마세요.
+                </p>
+              </div>
+            </header>
 
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8">
@@ -339,14 +295,19 @@ const QRGeneratorPage = () => {
               <Link href="/qr-landing" className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
                 QR 랜딩페이지 보기
               </Link>
+              <Link href="/admin" className="inline-block bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition-colors">
+                관리자 대시보드
+              </Link>
               <Link href="/" className="inline-block bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
                 메인 페이지로
               </Link>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+          </div>
+        </div>
+      </Layout>
+    </AdminGuard>
   );
 };
 
