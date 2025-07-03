@@ -155,7 +155,7 @@ export default function Contents() {
             {/* 메인 컨텐츠 헤더 */}
             <section className="mb-8 container mx-auto px-4 py-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">📚 아이와글 교육</h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
                 어린이 스피치와 관련된 다양한 교육 자료를 만나보세요
               </p>
             </section>
