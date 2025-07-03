@@ -106,7 +106,7 @@ export default function Contents() {
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
               교육 컨텐츠는 QR 코드로만 접근 가능합니다
             </h1>
-            <p className="text-lg text-gray-600 mb-6">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6">
               특별한 교육 컨텐츠는 QR 코드를 통해 방문하신 고객님만 이용하실 수 있습니다.<br/>
               메인 페이지로 이동합니다...
             </p>
@@ -155,7 +155,7 @@ export default function Contents() {
             {/* 메인 컨텐츠 헤더 */}
             <section className="mb-8 container mx-auto px-4 py-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">📚 아이와글 교육</h1>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
                 어린이 스피치와 관련된 다양한 교육 자료를 만나보세요
               </p>
             </section>
