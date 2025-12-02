@@ -17,6 +17,7 @@ const videos = [
     description: "어린이를 위한 기본 스피치 기법과 자신감 향상 방법",
     url: "https://riospeechvideos.jjwonyop.workers.dev/speech1.mp4",
     poster: getImagePath("/images/video/thumbnail1.jpg"),
+    thumbnail: "/images/video/thumbnail1.jpg",
     icon: "🎥",
     duration: 227,
     placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg=="
@@ -27,6 +28,7 @@ const videos = [
     description: "리오 캐릭터와 함께 배우는 재미있는 스피치 학습",
     url: "https://riospeechvideos.jjwonyop.workers.dev/speech2.mp4",
     poster: getImagePath("/images/video/thumbnail2.jpg"),
+    thumbnail: "/images/video/thumbnail2.jpg",
     icon: "📚",
     duration: 124,
     placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg=="
@@ -37,6 +39,7 @@ const videos = [
     description: "정확한 발음과 또렷한 말하기 연습",
     url: "https://riospeechvideos.jjwonyop.workers.dev/speech3.mp4",
     poster: getImagePath("/images/video/thumbnail3.jpg"),
+    thumbnail: "/images/video/thumbnail3.jpg",
     icon: "🗣️",
     duration: 159,
     placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg=="
@@ -46,17 +49,19 @@ const videos = [
     title: "제 4강 강조수업",
     description: "무대 공포증 극복과 자신감 있는 발표",
     url: "https://riospeechvideos.jjwonyop.workers.dev/speech4.mp4",
-    poster: getImagePath("/images/video/thumbnail4.jpg"),
+    poster: getImagePath("/images/video/thumbnail5.jpg"),
+    thumbnail: "/images/video/thumbnail5.jpg",
     icon: "💪",
     duration: 134,
-    placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg=="
+    placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg==" 
   },
   {
     id: 5,
     title: "제 5강 몸짓수업",
     description: "재미있는 이야기 구성과 전달 방법",
     url: "https://riospeechvideos.jjwonyop.workers.dev/speech5.mp4",
-    poster: getImagePath("/images/video/thumbnail5.jpg"),
+    poster: getImagePath("/images/video/thumbnail4.jpg"),
+    thumbnail: "/images/video/thumbnail4.jpg",
     icon: "📖",
     duration: 131,
     placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wAA/wAB/6CMRgAAAABJRU5ErkJggg=="
@@ -171,7 +176,7 @@ export default function Contents() {
                     <div key={video.id} className="bg-white p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
                       <div style={{ width: '100%', height: '200px', backgroundColor: 'lightgray', marginBottom: '12px', position: 'relative' }} className="group cursor-pointer" onClick={() => setSelectedVideo(video)}>
                         <img 
-                          src={`/images/video/thumbnail${video.id}.jpg`}
+                          src={video.thumbnail}
                           alt={`${video.title} 썸네일`}
                           style={{ 
                             width: '100%', 
