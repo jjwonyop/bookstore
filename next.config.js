@@ -4,7 +4,6 @@ const nextConfig = {
   // 개발 환경에서는 output: 'export' 설정을 적용하지 않음
   ...(process.env.NODE_ENV === 'production' ? { output: 'export' } : {}),
   images: {
-    domains: ['i0.wp.com', 'iwagle.com', 'wp.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,6 +13,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'iwagle.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wp.com',
         pathname: '**',
       }
     ],
@@ -30,17 +34,19 @@ const nextConfig = {
   
   // SEO 관련 추가 설정
   poweredByHeader: false, // X-Powered-By 헤더 비활성화
-  // 리다이렉트 설정 (필요한 경우)
-  async redirects() {
-    return [
-      // 예: 이전 URL 경로를 새 경로로 리다이렉트
-      {
-        source: '/old-page',
-        destination: '/news',
-        permanent: true,
-      },
-    ];
-  }
+  // 리다이렉트 설정 (output: 'export' 사용 시 작동하지 않으므로 개발 환경에서만 적용)
+  ...(process.env.NODE_ENV !== 'production' ? {
+    async redirects() {
+      return [
+        // 예: 이전 URL 경로를 새 경로로 리다이렉트
+        {
+          source: '/old-page',
+          destination: '/news',
+          permanent: true,
+        },
+      ];
+    }
+  } : {})
 }
 
 module.exports = nextConfig 
