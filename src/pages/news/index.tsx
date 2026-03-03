@@ -34,6 +34,23 @@ export default function News() {
               </p>
             </div>
           </Link>
+
+          <Link href="/news/recruitment">
+            <div className="border border-gray-300 p-4 flex flex-col rounded-sm shadow-sm hover:shadow-md transition-shadow h-full">
+              <div className="relative aspect-[3/4] w-full mb-4 max-w-xs mx-auto bg-gray-50 flex items-center justify-center">
+                <div className="text-center px-4">
+                  <p className="text-4xl mb-4">📢</p>
+                  <p className="text-sm text-gray-500 font-medium leading-relaxed">초등 논술 교재<br />기획 및 편집자 채용</p>
+                </div>
+              </div>
+              <p className="text-lg font-bold text-center">
+                채용공고
+              </p>
+              <p className="text-center font-bold mt-auto py-2 border-t border-gray-300 mt-4 hover:text-gray-600">
+                자세히 보기
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </Layout>
