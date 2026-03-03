@@ -117,7 +117,7 @@ export default function Recruitment() {
             이메일 지원:{" "}
             <a
               href="mailto:lalalaspeech@gmail.com"
-              className="font-semibold text-gray-800 underline underline-offset-2 hover:text-gray-500 transition-colors"
+              className="font-semibold text-gray-800 underline underline-offset-2 hover:text-gray-500 transition-colors font-serif"
             >
               lalalaspeech@gmail.com
             </a>
