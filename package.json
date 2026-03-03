@@ -12,11 +12,20 @@
     "build:prod": "npm run optimize-images && next build && next-sitemap"
   },
   "dependencies": {
+    "minimatch": "^3.1.4",
     "next": "^16.1.5",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^12.1.2"
+  },
+  "resolutions": {
+    "glob/minimatch": "^10.2.3",
+    "@typescript-eslint/typescript-estree/minimatch": "^10.2.3",
+    "typescript-eslint/minimatch": "^10.2.3",
+    "@eslint/eslintrc/minimatch": "^3.1.4",
+    "eslint/minimatch": "^3.1.4",
+    "@eslint/config-array/minimatch": "^3.1.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
