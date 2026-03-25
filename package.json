@@ -28,6 +28,9 @@
     "@eslint/config-array/minimatch": "^3.1.4",
     "flatted": "^3.4.2"
   },
+  "overrides": {
+    "flatted": "^3.4.2"
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9",
