@@ -1,4 +1,4 @@
-# Cloudflare Pages 응답 헤더 설정 (GitHub Pages에서는 적용되지 않음)
+# Cloudflare Pages 응답 헤더 설정
 
 /*
   X-Content-Type-Options: nosniff

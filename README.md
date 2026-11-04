@@ -23,9 +23,10 @@ pnpm build:prod
 
 ## 배포 정보
 
-- GitHub Pages를 통해 배포
-- 커스텀 도메인: [iwagle.com](https://iwagle.com)
-- 자동 배포: GitHub Actions를 통한 CI/CD
+- Cloudflare Pages를 통해 배포 (프로젝트: `bookstore`, 빌드 `pnpm build` → `out`)
+- 커스텀 도메인: [iwagle.com](https://iwagle.com), [books.iwagle.com](https://books.iwagle.com) (www는 Cloudflare Redirect Rule로 iwagle.com에 301)
+- 자동 배포: `main` 브랜치에 푸시하면 Cloudflare Pages가 빌드 및 배포
+- 응답 헤더: `public/_headers` (보안 헤더, books/pages.dev noindex)
 
 ## SEO 최적화
 
