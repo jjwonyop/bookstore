@@ -295,9 +295,6 @@ export default function Contents() {
                 <p className="text-gray-600">{selectedVideo.description}</p>
                 <div className="mt-2 text-sm text-gray-500">
                   재생 시간: {Math.floor(selectedVideo.duration / 60)}분 {selectedVideo.duration % 60}초
-                  {selectedVideo.duration > 150 && (
-                    <span className="ml-2 text-blue-600">• 스마트 로딩 적용</span>
-                  )}
                 </div>
               </div>
             </div>
