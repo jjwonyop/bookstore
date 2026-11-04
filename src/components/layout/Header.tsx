@@ -43,7 +43,7 @@ const Header = () => {
       name: '아이와글 책장',
       href: '/books',
       subMenus: [
-        { name: '리오와 스피치 마법학교', href: '/books/first-summer' },
+        { name: '리오와 스피치 마법학교', href: '/books/summer' },
       ],
     },
     {

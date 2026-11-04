@@ -2,6 +2,7 @@
   "name": "bookstore",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.8.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,32 +10,14 @@
     "lint": "node -e \"console.log('lint: skipped (ESLint/Next config incompatibility)')\"",
     "export": "next build",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "build:prod": "npm run optimize-images && next build && next-sitemap"
+    "build:prod": "pnpm run optimize-images && next build && next-sitemap"
   },
   "dependencies": {
-    "minimatch": "^3.1.4",
-    "next": "^16.2.6",
+    "next": "^16.4.3",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swiper": "^12.1.2"
-  },
-  "resolutions": {
-    "glob/minimatch": "^10.2.3",
-    "@typescript-eslint/typescript-estree/minimatch": "^10.2.3",
-    "typescript-eslint/minimatch": "^10.2.3",
-    "@eslint/eslintrc/minimatch": "^3.1.4",
-    "eslint/minimatch": "^3.1.4",
-    "@eslint/config-array/minimatch": "^3.1.4",
-    "flatted": "^3.4.2",
-    "brace-expansion": "^1.1.13",
-    "postcss": "^8.5.10"
-  },
-  "overrides": {
-    "flatted": "^3.4.2",
-    "picomatch": "^4.0.4",
-    "brace-expansion": "^1.1.13",
-    "postcss": "^8.5.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -44,9 +27,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "^16.2.6",
-    "glob": "^11.0.2",
-    "sharp": "^0.34.1",
+    "eslint-config-next": "^16.4.3",
+    "glob": "^14.0.3",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

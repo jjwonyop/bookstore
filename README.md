@@ -11,14 +11,14 @@ Next.js로 개발된 아이와글 출판사 공식 웹사이트입니다.
 ## 개발 환경 설정
 
 ```bash
-# 패키지 설치
-yarn install
+# 패키지 설치 (pnpm 사용, 버전은 package.json의 packageManager 참고)
+pnpm install
 
 # 개발 서버 실행
-yarn dev
+pnpm dev
 
 # 프로덕션 빌드
-yarn build:prod
+pnpm build:prod
 ```
 
 ## 배포 정보

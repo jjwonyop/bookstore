@@ -1,0 +1,24 @@
+# 보안 취약점 조치용 하위 의존성 버전 고정 (기존 yarn resolutions / npm overrides 이전)
+overrides:
+  glob>minimatch: ^10.2.3
+  "@typescript-eslint/typescript-estree>minimatch": ^10.2.3
+  typescript-eslint>minimatch: ^10.2.3
+  "@eslint/eslintrc>minimatch": ^3.1.4
+  eslint>minimatch: ^3.1.4
+  "@eslint/config-array>minimatch": ^3.1.4
+  flatted: ^3.4.2
+  picomatch: ^4.0.4
+  brace-expansion@<2: ^1.1.21
+  postcss: ^8.5.32
+  js-yaml@>=4 <4.3.2: ^4.3.2
+  nanoid@<3.3.12: ^3.3.12
+  browserslist@<4.28.7: ^4.28.7
+  baseline-browser-mapping@<2.11.0: ^2.11.0
+  source-map-js@<1.2.2: ^1.2.2
+  "@humanfs/node@<0.16.8": ^0.16.8
+  "@babel/core@<7.29.6": ^7.29.6
+  zod@<4.6.6: ^4.6.6
+
+# 설치 스크립트 실행 여부 (unrs-resolver는 플랫폼별 바이너리를 optional 의존성으로 받으므로 불필요)
+allowBuilds:
+  unrs-resolver: false

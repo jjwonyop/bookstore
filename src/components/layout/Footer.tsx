@@ -16,7 +16,7 @@ const Footer = () => {
             <div>
               <h3 className="font-medium mb-3">책 소개</h3>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link href="/books/first-summer">리오와 스피치 마법학교</Link></li>
+                <li><Link href="/books/summer">리오와 스피치 마법학교</Link></li>
               </ul>
             </div>
             
