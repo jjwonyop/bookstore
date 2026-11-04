@@ -1,17 +1,13 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { getStaticImagePath } from "../utils/path";
-
-// ManyChat(인스타 DM) 링크는 ?mcp_token=... 이 붙어서 들어오므로 1분스피치 사이트로 보낸다
-// iwagle.com에서만 동작하고 books.iwagle.com 등 다른 도메인은 그대로 둔다
-const MANYCHAT_REDIRECT_HOST = "iwagle.com";
-const MANYCHAT_REDIRECT_URL = "https://xn--2j1b67og3hpa59r.com/"; // 언어의바다.com
-const manychatRedirectScript = `(function(){try{if(location.hostname==="${MANYCHAT_REDIRECT_HOST}"&&new URLSearchParams(location.search).has("mcp_token")){location.replace("${MANYCHAT_REDIRECT_URL}");}}catch(e){}})();`;
+import { redirectScript } from "../utils/redirectScript";
 
 export default function Document() {
   return (
     <Html lang="ko">
       <Head>
-        <script dangerouslySetInnerHTML={{ __html: manychatRedirectScript }} />
+        {/* go 파라미터 / ManyChat(mcp_token) 리다이렉트: 규칙은 utils/redirectScript.ts 참고 */}
+        <script dangerouslySetInnerHTML={{ __html: redirectScript }} />
 
         {/* 파비콘 설정 */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
